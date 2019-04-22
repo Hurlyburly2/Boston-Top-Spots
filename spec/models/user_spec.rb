@@ -16,7 +16,6 @@ RSpec.describe User, type: :model do
     let!(:newUser) { User.create() }
 
     scenario 'unsuccessfull creation of a new user' do
-      # binding.pry
       expect(newUser.errors.full_messages).to include("Username can't be blank")
       expect(newUser.errors.full_messages).to include("Email can't be blank")
       expect(newUser.errors.full_messages).to include("Password can't be blank")
