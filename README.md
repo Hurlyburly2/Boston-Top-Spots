@@ -1,5 +1,7 @@
 # README
 
+[![Codeship Status for HGarcia22/Boston-Top-Spots](https://app.codeship.com/projects/f0750a00-474f-0137-cd63-3a91933c600e/status?branch=master)](https://app.codeship.com/projects/337461)
+
 Project name: Boston Top Spots
 
 Contributors: Doug Simon, Boris Margarian, Allison Kemmerle, and Heather Garcia
