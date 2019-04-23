@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import AttractionTile from "../components/attractionTile";
+import ReviewForm from "./ReviewForm";
+import ReviewsContainer from "./ReviewsContainer";
 
 class AttractionsShowContainer extends Component {
   constructor(props) {
