@@ -4,7 +4,7 @@
   <% if @attractions %>
     <% @attractions.each do |attraction| %>
       <li>
-        <%= link_to attraction.name, "#" %>
+        <%= link_to attraction.name, attraction_path %>
       </li>
     <% end %>
   <% end %>
