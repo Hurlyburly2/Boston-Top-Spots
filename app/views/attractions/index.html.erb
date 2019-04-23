@@ -1,0 +1,13 @@
+<div>
+
+  <ul>
+  <% if @attractions %>
+    <% @attractions.each do |attraction| %>
+      <li>
+        <%= link_to attraction.name, "#" %>
+      </li>
+    <% end %>
+  <% end %>
+  </ul>
+
+</div>
