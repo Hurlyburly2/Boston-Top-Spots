@@ -10,6 +10,11 @@ class AttractionsShowContainer extends Component {
       attraction: {},
       reviews: []
     };
+    this.addNewReview = this.addNewReview.bind(this)
+  }
+
+  addNewReview(formPayload) {
+    formPayload["attraction_id"] = this.state.attraction.id
   }
 
   componentDidMount() {
@@ -26,7 +31,6 @@ class AttractionsShowContainer extends Component {
       })
       .then(response => response.json())
       .then(body => {
-        debugger;
         this.setState({
           attraction: body,
           reviews: body.reviews
@@ -47,6 +51,9 @@ class AttractionsShowContainer extends Component {
           description={this.state.attraction.description}
         />
         <ReviewsContainer reviews={this.state.reviews} />
+        <ReviewForm
+          addNewReview={this.addNewReview}
+        />
       </div>
     );
   }

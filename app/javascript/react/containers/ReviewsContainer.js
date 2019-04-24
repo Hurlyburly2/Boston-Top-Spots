@@ -8,7 +8,6 @@ class ReviewsContainer extends Component {
   }
 
   render() {
-    debugger;
     let reviews = this.props.reviews.map(review => {
       return (
         <ReviewTile
