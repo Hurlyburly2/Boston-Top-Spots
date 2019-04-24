@@ -15,7 +15,6 @@ class AttractionsShowContainer extends Component {
 
   addNewReview(formPayload) {
     formPayload["attraction_id"] = this.state.attraction.id
-    debugger;
   }
 
   componentDidMount() {
