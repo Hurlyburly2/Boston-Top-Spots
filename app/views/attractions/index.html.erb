@@ -1,0 +1,15 @@
+<div>
+
+  <ul>
+  <% if @attractions %>
+    <% @attractions.each do |attraction| %>
+      <li>
+        <%= link_to attraction.name, attraction_path(attraction) %>
+      </li>
+    <% end %>
+  <% end %>
+  </ul>
+
+  <%= link_to "Add a New Attraction!", new_attraction_path %>
+
+</div>
