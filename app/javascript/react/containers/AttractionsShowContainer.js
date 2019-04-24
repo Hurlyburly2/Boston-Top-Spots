@@ -8,8 +8,10 @@ class AttractionsShowContainer extends Component {
     super(props);
     this.state = {
       attraction: {},
-      reviews: []
+      reviews: [],
+      currentUser: null
     };
+<<<<<<< HEAD
     this.addNewReview = this.addNewReview.bind(this)
   }
 
@@ -40,6 +42,8 @@ class AttractionsShowContainer extends Component {
         this.setState({reviews: this.state.reviews.concat(body.review) });
       })
       .catch(error => console.error(`Error in fetch: ${error.message}`));
+=======
+>>>>>>> origin/add_showpage_and_tests
   }
 
   componentDidMount() {
@@ -57,8 +61,9 @@ class AttractionsShowContainer extends Component {
       .then(response => response.json())
       .then(body => {
         this.setState({
-          attraction: body,
-          reviews: body.reviews
+          attraction: body.attractions,
+          reviews: body.attractions.reviews,
+          currentUser: body.current_user
         });
       })
       .catch(error => console.error(`Error in fetch: ${error.message}`));
@@ -76,9 +81,6 @@ class AttractionsShowContainer extends Component {
           description={this.state.attraction.description}
         />
         <ReviewsContainer reviews={this.state.reviews} />
-        <ReviewForm
-          addNewReview={this.addNewReview}
-        />
       </div>
     );
   }

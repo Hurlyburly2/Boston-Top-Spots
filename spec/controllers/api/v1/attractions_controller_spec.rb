@@ -11,16 +11,15 @@ RSpec.describe Api::V1::AttractionsController, type: :controller do
       expect(response.status).to eq 200
       expect(response.content_type).to eq ("application/json")
 
-      expect(return_json["name"]).to eq("Duck Tours")
-      expect(return_json["description"]).to eq("A splashing good time!")
-      expect(return_json["address"]).to eq("123 Boston St.")
-      expect(return_json["city"]).to eq("Boston")
-      expect(return_json["state"]).to eq("MA")
-      expect(return_json["zip"]).to eq("01234")
+      expect(return_json["attractions"]["name"]).to eq("Duck Tours")
+      expect(return_json["attractions"]["description"]).to eq("A splashing good time!")
+      expect(return_json["attractions"]["address"]).to eq("123 Boston St.")
+      expect(return_json["attractions"]["city"]).to eq("Boston")
+      expect(return_json["attractions"]["state"]).to eq("MA")
+      expect(return_json["attractions"]["zip"]).to eq("01234")
     end
 
     it "should list reviews for the attraction" do
-
 
       user = User.create!(username: "NickAlberts", email: "unicornlova@gmail.com", password: "binicorn123")
 
@@ -31,10 +30,10 @@ RSpec.describe Api::V1::AttractionsController, type: :controller do
       get :show, params: { id: attraction.id }
       return_json = JSON.parse(response.body)
 
-      expect(return_json["reviews"].length).to eq(1)
-      expect(return_json["reviews"][0]["rating"]).to eq(5)
-      expect(return_json["reviews"][0]["reviewer"]["username"]).to eq("NickAlberts")
-      expect(return_json["reviews"][0]["reviewer"]["email"]).to eq(nil)
+      expect(return_json["attractions"]["reviews"].length).to eq(1)
+      expect(return_json["attractions"]["reviews"][0]["rating"]).to eq(5)
+      expect(return_json["attractions"]["reviews"][0]["reviewer"]["username"]).to eq("NickAlberts")
+      expect(return_json["attractions"]["reviews"][0]["reviewer"]["email"]).to eq(nil)
     end
   end
 end
