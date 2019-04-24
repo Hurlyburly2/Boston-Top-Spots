@@ -14,7 +14,32 @@ class AttractionsShowContainer extends Component {
   }
 
   addNewReview(formPayload) {
-    formPayload["attraction_id"] = this.state.attraction.id
+    formPayload["attraction_id"] = this.state.attraction.attractions.id
+    formPayload["user_id"] = this.state.attraction.current_user.id
+
+    fetch(`/api/v1/reviews`, {
+      credentials: 'same-origin',
+      method: 'POST',
+      body: JSON.stringify(formPayload),
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      }
+    })
+    .then(response => {
+        if (response.ok) {
+          return response;
+        } else {
+          let errorMessage = `${response.status} (${response.statusText})`,
+              error = new Error(errorMessage);
+          throw(error);
+        }
+      })
+      .then(response => response.json())
+      .then(body => {
+        this.setState({reviews: this.state.reviews.concat(body.review) });
+      })
+      .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
 
   componentDidMount() {
