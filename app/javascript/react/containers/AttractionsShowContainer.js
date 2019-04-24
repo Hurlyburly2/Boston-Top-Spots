@@ -7,7 +7,8 @@ class AttractionsShowContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      attraction: {}
+      attraction: {},
+      reviews: []
     };
   }
 
@@ -25,21 +26,28 @@ class AttractionsShowContainer extends Component {
       })
       .then(response => response.json())
       .then(body => {
-        this.setState({ attraction: body });
+        debugger;
+        this.setState({
+          attraction: body,
+          reviews: body.reviews
+        });
       })
       .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
   render() {
     return (
-      <AttractionTile
-        id={this.state.attraction.id}
-        name={this.state.attraction.name}
-        address={this.state.attraction.address}
-        city={this.state.attraction.city}
-        state={this.state.attraction.state}
-        zip={this.state.attraction.zip}
-        description={this.state.attraction.description}
-      />
+      <div>
+        <AttractionTile
+          id={this.state.attraction.id}
+          name={this.state.attraction.name}
+          address={this.state.attraction.address}
+          city={this.state.attraction.city}
+          state={this.state.attraction.state}
+          zip={this.state.attraction.zip}
+          description={this.state.attraction.description}
+        />
+        <ReviewsContainer reviews={this.state.reviews} />
+      </div>
     );
   }
 }
