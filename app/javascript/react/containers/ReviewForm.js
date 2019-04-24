@@ -30,7 +30,7 @@ class ReviewForm extends Component {
     let body = this.state.body;
     if (rating.trim() !== "" && body.trim() !== "") {
       let formPayload = {
-        rating: Number(this.state.rating),
+        rating: this.state.rating,
         body: this.state.body
       };
       this.props.addNewReview(formPayload);
