@@ -3,6 +3,7 @@ import ReviewTile from '../components/ReviewTile'
 
 class ReviewsContainer extends Component {
   constructor(props) {
+    super(props);
     this.state = {
 
     }
@@ -18,7 +19,7 @@ class ReviewsContainer extends Component {
           rating={review.rating}
         />
       )
-    }
+    });
     return (
       <div>
         {reviews}

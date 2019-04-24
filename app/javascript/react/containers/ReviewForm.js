@@ -5,6 +5,7 @@ import BodyField from '../components/BodyField';
 
 class ReviewForm extends Component {
   constructor(props) {
+    super(props);
     this.state = {
       body: "",
       rating: "",
