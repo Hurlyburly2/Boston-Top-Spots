@@ -4,7 +4,8 @@ RSpec.describe Review, type: :model do
 
   describe "review is created successfully" do
     let!(:attraction) { Attraction.create!(name: "Duck Tours", description: "Splashing good time!", address: "123 Splash Town", city: "Boston", state: "MA", zip: "12345") }
-    let!(:review) { Review.create!(body: "this attraction rocks", rating: 5, attraction: attraction) }
+    let!(:newUser) { User.create(username: 'Fail Example', email: 'fail@example.com', password: 'password') }
+    let!(:review) { Review.create!(body: "this attraction rocks", rating: 5, attraction: attraction, user: newUser) }
 
     it "has a body" do
       expect(review.body).to eq "this attraction rocks"
@@ -22,6 +23,8 @@ RSpec.describe Review, type: :model do
       expect(review.errors.full_messages).to include "Rating can't be blank"
       expect(review.errors.full_messages).to include "Rating is not a number"
       expect(review.errors.full_messages).to include "Attraction must exist"
+      expect(review.errors.full_messages).to include "User must exist"
+      expect(review.errors.full_messages.length).to eq 5
     end
   end
 

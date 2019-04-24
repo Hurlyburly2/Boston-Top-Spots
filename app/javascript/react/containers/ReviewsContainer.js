@@ -4,13 +4,7 @@ import ReviewTile from "../components/ReviewTile";
 class ReviewsContainer extends Component {
   constructor(props) {
     super(props);
-<<<<<<< HEAD
-    this.state = {
-
-    }
-=======
     this.state = {};
->>>>>>> origin/add_showpage_and_tests
   }
 
   render() {
@@ -24,20 +18,10 @@ class ReviewsContainer extends Component {
           rating={review.rating}
           user={review.user_id}
         />
-<<<<<<< HEAD
-      )
-    });
-    return (
-      <div>
-        {reviews}
-      </div>
-    )
-=======
       );
     });
 
     return <div>{reviews}</div>;
->>>>>>> origin/add_showpage_and_tests
   }
 }
 
