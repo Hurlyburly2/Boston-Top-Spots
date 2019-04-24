@@ -20,6 +20,10 @@ class AttractionsController < ApplicationController
     end
   end
 
+  def show
+    @attraction = Attraction.find(params[:id])
+  end
+  
   private
   def attraction_params
     params.require(:attraction).permit(
@@ -29,5 +33,5 @@ class AttractionsController < ApplicationController
       :city,
       :state,
       :zip)
-  end 
+  end
 end

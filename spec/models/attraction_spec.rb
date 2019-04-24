@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Attraction, type: :model do
-  let!(:attraction) { Attraction.create(name: "Duck Tours", description: "Splashing good time!", address: "123 Splash Town", city: "Boston", state: "MA", zip: "12345") }
+  let!(:attraction) { Attraction.create!(name: "Duck Tours", description: "Splashing good time!", address: "123 Splash Town", city: "Boston", state: "MA", zip: "12345") }
 
   describe "Validations" do
 
