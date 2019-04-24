@@ -13,3 +13,7 @@ end
 if Rails.env.development?
   AttractionSeeder.seed!
 end
+
+if Rails.env.development?
+  ReviewSeeder.seed!
+end
