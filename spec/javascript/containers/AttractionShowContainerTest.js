@@ -42,7 +42,6 @@ describe("AttractionsShowContainer", () => {
         role: "admin"
       }
     };
-    console.log(fetchMock.get)
     fetchMock.get('/api/v1/attractions/6', {
       status: 200,
       body: data
@@ -56,6 +55,48 @@ describe("AttractionsShowContainer", () => {
       done()
     }, 0)
   });
+
+  it("should render a AttractionTile component", done => {
+    setTimeout(() => {
+      expect(wrapper.find(AttractionTile)).toBePresent();
+      done();
+    }, 0);
+  });
+
+  it("should render the AttractionTile Component with specific props", done => {
+    setTimeout(() => {
+      expect(wrapper.find(AttractionTile).props()).toEqual({
+        id: 6,
+        name: "Duck Tours",
+        description: "A splashing good time",
+        address: "123 Boston St.",
+        city: "Boston",
+        state: "MA",
+        zip: "02137"
+      });
+      done();
+    }, 0);
+  });
+
+  it("should render the ReviewsContainer with specific props", done => {
+    setTimeout(() => {
+      expect(wrapper.find(ReviewsContainer).props()).toEqual({
+        reviews: [
+          {
+            id: 2,
+            rating: 3,
+            body: "This is a review",
+            reviewer: {
+              id: 1,
+              username: "BorisMargarian"
+            }
+          }
+        ]
+      });
+      done();
+    }, 0);
+  });
+
 
   it("should post a new review", (done) => {
     let params = {
