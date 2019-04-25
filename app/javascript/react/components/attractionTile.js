@@ -5,7 +5,7 @@ const AttractionTile = props => {
   return (
     <div>
       <h1>{props.name}</h1>
-      <p>{props.description}</p>
+      <p id="attraction-description">{props.description}</p>
       <p>{props.address}</p>
       <p>
         {props.city}, {props.state} {props.zip}
