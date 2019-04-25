@@ -62,7 +62,6 @@ RSpec.describe Api::V1::ReviewsController, type: :controller do
 
       expect(returned_json).to be_kind_of(Hash)
       expect(returned_json).to_not be_kind_of(Array)
-      binding.pry
       expect(returned_json["review"]["body"]).to eq "A splashing good time"
       expect(returned_json["review"]["attraction_id"]).to eq attraction.id
       expect(returned_json["review"]["user_id"]).to eq user.id
