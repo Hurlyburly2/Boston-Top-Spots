@@ -1,7 +1,11 @@
 class Api::V1::AttractionsController < ApplicationController
-  #serialization_scope :current_user #WE WILL USE THIS LATER
 
   def show
-    render json: Attraction.find(params[:id]), serializer: AttractionShowSerializer
+    attractions = AttractionShowSerializer.new(Attraction.find(params[:id]))
+
+    render json: {
+      attractions: attractions,
+      current_user: current_user
+    }
   end
 end
