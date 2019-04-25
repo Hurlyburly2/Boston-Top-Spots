@@ -7,4 +7,5 @@ class Attraction < ApplicationRecord
   validates :zip, presence: true
 
   has_many :reviews
+  belongs_to :user 
 end

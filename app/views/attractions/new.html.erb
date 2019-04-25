@@ -34,6 +34,12 @@
     <%= f.text_field :zip %>
   </div>
 
+  <% if current_user %>
+    <% current_user.id %>
+    <% current_user.username %>
+    <%= f.hidden_field :user_id, value: current_user.id%>
+  <% end %>
+
   <div class="actions">
     <%= f.button "Add Your Attraction!"%>
   </div>
