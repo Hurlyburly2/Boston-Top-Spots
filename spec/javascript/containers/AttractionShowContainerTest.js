@@ -5,7 +5,8 @@ import ReviewsContainer from "../../../app/javascript/react/containers/ReviewsCo
 import ReviewTile from "../../../app/javascript/react/components/ReviewTile";
 
 import fetchMock from "fetch-mock";
-import "../testHelper.js";
+import '../testHelper.js'
+
 
 describe("AttractionsShowContainer", () => {
   let wrapper, data;
@@ -41,19 +42,18 @@ describe("AttractionsShowContainer", () => {
         role: "admin"
       }
     };
-
-    fetchMock.get("/api/v1/attractions/6", {
+    fetchMock.get('/api/v1/attractions/6', {
       status: 200,
       body: data
     });
-    wrapper = mount(<AttractionsShowContainer params={{ id: 6 }} />);
+    wrapper = mount(<AttractionsShowContainer params={{ "id": 6 }} />);
   });
 
-  it("should render a ReviewsContainer component", done => {
+  it("should render a ReviewsContainer component", (done) => {
     setTimeout(() => {
       expect(wrapper.find(ReviewsContainer)).toBePresent();
-      done();
-    }, 0);
+      done()
+    }, 0)
   });
 
   it("should render a AttractionTile component", done => {
@@ -95,5 +95,43 @@ describe("AttractionsShowContainer", () => {
       });
       done();
     }, 0);
+  });
+
+
+  it("should post a new review", (done) => {
+    let params = {
+      review: {
+        rating: 5,
+        body: 'A splashing good time',
+        attraction_id: 3,
+        user_id: 2
+      }
+    }
+
+    fetchMock.post('/api/v1/reviews/create', {
+      status: 201,
+      body: params
+    });
+    setTimeout(() => {
+      let listItemCount = wrapper.find('li').length
+      wrapper.find('#submit-button').simulate('submit')
+      setTimeout(() => {
+        expect(wrapper.find('li').length).toEqual(listItemCount + 1)
+        done()
+      }, 0)
+    }, 0)
+  });
+
+  it('shows an error message when a 422 status is received', (done) => {
+    fetchMock.post('/api/v1/reviews/create', {
+      status: 422,
+      body: { errorItems: ["You cannot submit a blank form & must resolve all errors!"] }
+    });
+    wrapper.find('#submit-button').simulate('submit')
+    setTimeout(() => {
+      expect(wrapper.find('.callout-alert')).toBePresent()
+      expect(wrapper.find('.callout-alert').text()).toEqual("You cannot submit a blank form & must resolve all errors!")
+      done()
+    }, 0)
   });
 });

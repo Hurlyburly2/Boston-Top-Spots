@@ -30,7 +30,7 @@ class ReviewForm extends Component {
     let body = this.state.body;
     if (rating.trim() !== "" && body.trim() !== "") {
       let formPayload = {
-        rating: this.state.rating,
+        rating: Number(this.state.rating),
         body: this.state.body
       };
       this.props.addNewReview(formPayload);
@@ -88,7 +88,7 @@ class ReviewForm extends Component {
         return <li key={error}>{error}</li>;
       });
       errorDiv = (
-        <div className="callout alert">
+        <div className="callout-alert">
           <ul>{errorItems}</ul>
         </div>
       );
@@ -115,7 +115,7 @@ class ReviewForm extends Component {
           <button className="button" onClick={this.handleClear}>
             Clear
           </button>
-          <input className="button" type="submit" value="Submit" />
+          <input id="submit-button" className="button" type="submit" value="Submit" />
         </div>
       </form>
     );
