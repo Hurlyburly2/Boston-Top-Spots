@@ -21,11 +21,23 @@ describe("AttractionTile", () => {
     expect(wrapper.find("h1").text()).toBe("Duck Tours");
   });
 
-  it("should render a p tag", () => {
-    expect(wrapper.find("#attraction-description").text()).toBe("A quacking good time");
+  it("should render an attraction description", () => {
+    expect(wrapper.find("#attraction-description").text()).toBe(
+      "A quacking good time"
+    );
   });
 
-  // it("should render a p tag with the text A quacking good time", () => {
-  //   expect(wrapper.text()).to.equal("A quacking good time");
-  // });
+  it("should render an attraction name", () => {
+    expect(wrapper.find("#attraction-name").text()).toBe("Duck Tours");
+  });
+
+  it("should render an attraction address", () => {
+    expect(wrapper.find("#attraction-address").text()).toBe("123 Boston St");
+  });
+
+  it("should render an attraction city, state, zip", () => {
+    expect(wrapper.find("#attraction-city-state-zip").text()).toBe(
+      "Boston, MA 02127"
+    );
+  });
 });
