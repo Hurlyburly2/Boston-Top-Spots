@@ -8,4 +8,8 @@ class Api::V1::AttractionsController < ApplicationController
       current_user: current_user
     }
   end
+  
+  def destroy
+    redirect_to root_path
+  end
 end
