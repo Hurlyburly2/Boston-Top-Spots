@@ -1,5 +1,5 @@
 import AttractionsShowContainer from "../../../app/javascript/react/containers/AttractionsShowContainer";
-import AttractionTile from "../../../app/javascript/react/components/AttractionTile";
+import AttractionTile from "../../../app/javascript/react/components/attractionTile";
 import ReviewForm from "../../../app/javascript/react/containers/ReviewForm";
 import ReviewsContainer from "../../../app/javascript/react/containers/ReviewsContainer";
 import ReviewTile from "../../../app/javascript/react/components/ReviewTile";
