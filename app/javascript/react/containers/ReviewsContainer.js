@@ -9,6 +9,7 @@ class ReviewsContainer extends Component {
 
   render() {
     let reviews = this.props.reviews.map(review => {
+      let handleClick = () => { this.props.handleDeleteReview(review.id) }
       return (
         <ReviewTile
           key={review.id}
@@ -16,11 +17,17 @@ class ReviewsContainer extends Component {
           body={review.body}
           rating={review.rating}
           user={review.user_id}
+          handleDeleteReview={handleClick}
+          currentUser={this.props.currentUser}
         />
       );
     });
 
-    return <div>{reviews}</div>;
+    return (
+      <div>
+        <ul>{reviews}</ul>
+      </div>
+    )
   }
 }
 

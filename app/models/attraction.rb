@@ -6,5 +6,5 @@ class Attraction < ApplicationRecord
   validates :state, presence: true
   validates :zip, presence: true
 
-  has_many :reviews
+  has_many :reviews, dependent: :destroy
 end

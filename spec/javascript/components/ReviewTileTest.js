@@ -5,7 +5,11 @@ describe("ReviewTile", () => {
 
   beforeEach(() => {
     wrapper = mount(
-      <ReviewTile rating="5 Stars" body="A great place in Boston" />
+      <ReviewTile
+        rating="5 Stars"
+        body="A great place in Boston"
+        currentUser={null}
+      />
     );
   });
 
@@ -24,7 +28,8 @@ describe("ReviewTile", () => {
   it("should render the ReviewTile component with specific props", () => {
     expect(wrapper.props()).toEqual({
       rating: "5 Stars",
-      body: "A great place in Boston"
+      body: "A great place in Boston",
+      currentUser: null
     });
   });
 });

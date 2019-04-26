@@ -70,6 +70,19 @@ RSpec.describe Api::V1::ReviewsController, type: :controller do
     end
   end
 
+  it "should delete the review" do
+    attraction = Attraction.create!(name: "Duck Tours", description: "A splashing good time!", address: "123 Boston St.", city: "Boston", state: "MA", zip: "01234")
 
+    user = User.create!(username: "NickAlberts", email: "unicornlova@gmail.com", password: "binicorn123")
+
+    review = Review.create!(body: "This place is sweetnes!", rating: 4, attraction: attraction, user: user)
+
+    get :destroy, params: { id: review.id }
+    return_json = JSON.parse(response.body)
+    expect(response.status).to eq 200
+    expect(response.content_type).to eq ("application/json")
+
+    expect(return_json["reviews"]).to eq([])
+  end
 
 end
