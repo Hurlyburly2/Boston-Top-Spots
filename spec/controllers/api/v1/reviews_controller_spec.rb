@@ -15,20 +15,20 @@ RSpec.describe Api::V1::ReviewsController, type: :controller do
         address: "123 Boston St.",
         city: "Boston",
         state: "MA",
-        zip: "01234")
+        zip: "01234",
+        user: user)
 
         params = {
         review: {
           rating: 5,
           body: 'A splashing good time',
-          attraction_id: attraction.id,
-          user_id: user.id
+          attraction: attraction,
+          user: user
         }
       }
 
-      prev_count = Review.count
-      post :create, params:  params
-      expect(Review.count).to eq(prev_count + 1)
+      post :create, {params:  params}
+      expect(attraction.user).to be(user)
     end
 
     it "returns the json of the newly posted review" do
@@ -43,7 +43,8 @@ RSpec.describe Api::V1::ReviewsController, type: :controller do
         address: "123 Boston St.",
         city: "Boston",
         state: "MA",
-        zip: "01234")
+        zip: "01234",
+        user: user)
 
         params = {
         review: {
@@ -71,10 +72,8 @@ RSpec.describe Api::V1::ReviewsController, type: :controller do
   end
 
   it "should delete the review" do
-    attraction = Attraction.create!(name: "Duck Tours", description: "A splashing good time!", address: "123 Boston St.", city: "Boston", state: "MA", zip: "01234")
-
     user = User.create!(username: "NickAlberts", email: "unicornlova@gmail.com", password: "binicorn123")
-
+    attraction = Attraction.create!(name: "Duck Tours", description: "A splashing good time!", address: "123 Boston St.", city: "Boston", state: "MA", zip: "01234", user: user)
     review = Review.create!(body: "This place is sweetnes!", rating: 4, attraction: attraction, user: user)
 
     get :destroy, params: { id: review.id }

@@ -1,7 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Attraction, type: :model do
-  let!(:attraction) { Attraction.create!(name: "Duck Tours", description: "Splashing good time!", address: "123 Splash Town", city: "Boston", state: "MA", zip: "12345") }
+  let!(:newUser) { User.create(username: 'Fail Example', email: 'fail@example.com', password: 'password') }
+  let!(:attraction) { Attraction.create!(name: "Duck Tours", description: "Splashing good time!", address: "123 Splash Town", city: "Boston", state: "MA", zip: "12345", user: newUser) }
 
   describe "Validations" do
 
@@ -36,6 +37,11 @@ RSpec.describe Attraction, type: :model do
 
     it "is not valid without a zip" do
       attraction.zip = nil
+      expect(attraction).to_not be_valid
+    end
+
+    it "is not valid without a user_id" do
+      attraction.user_id = nil
       expect(attraction).to_not be_valid
     end
    end

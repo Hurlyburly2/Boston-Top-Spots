@@ -3,8 +3,8 @@ require 'rails_helper'
 RSpec.describe Review, type: :model do
 
   describe "review is created successfully" do
-    let!(:attraction) { Attraction.create!(name: "Duck Tours", description: "Splashing good time!", address: "123 Splash Town", city: "Boston", state: "MA", zip: "12345") }
     let!(:newUser) { User.create(username: 'Fail Example', email: 'fail@example.com', password: 'password') }
+    let!(:attraction) { Attraction.create!(name: "Duck Tours", description: "Splashing good time!", address: "123 Splash Town", city: "Boston", state: "MA", zip: "12345", user: newUser) }
     let!(:review) { Review.create!(body: "this attraction rocks", rating: 5, attraction: attraction, user: newUser) }
 
     it "has a body" do
@@ -26,14 +26,5 @@ RSpec.describe Review, type: :model do
       expect(review.errors.full_messages).to include "User must exist"
       expect(review.errors.full_messages.length).to eq 5
     end
-  end
-
-  describe "review is given bad parameters" do
-    let!(:attraction) { Attraction.create!(name: "Duck Tours", description: "Splashing good time!", address: "123 Splash Town", city: "Boston", state: "MA", zip: "12345") }
-    let!(:review) { Review.create(body: "this attraction rocks", rating: 500, attraction: attraction) }
-
-    it "shows error for improper rating" do
-      expect(review).to_not be_valid
-     end
   end
 end
