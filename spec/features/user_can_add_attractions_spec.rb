@@ -1,7 +1,10 @@
 require 'rails_helper'
+require 'devise'
 
 feature "users can add new attractions" do
   scenario "user adds a new attraction successfully" do
+    user = FactoryBot.create(:user)
+    login_as(user, :scope => :user)
 
     visit new_attraction_path
     expect(page).to have_content "Submit a New Attraction Here!"
