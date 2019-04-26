@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import AttractionTile from "../components/attractionTile";
 import ReviewForm from "./ReviewForm";
 import ReviewsContainer from "./ReviewsContainer";
+import { Route, IndexRoute, Router, browserHistory } from "react-router";
+
 
 class AttractionsShowContainer extends Component {
   constructor(props) {
@@ -14,32 +16,33 @@ class AttractionsShowContainer extends Component {
     this.addNewReview = this.addNewReview.bind(this)
     this.handleDeleteAttraction = this.handleDeleteAttraction.bind(this)
   }
-  
+
   handleDeleteAttraction(event) {
     event.preventDefault()
     let attractionId = this.props.params.id;
     fetch(`/api/v1/attractions/${attractionId}`, {
       credentials: 'same-origin',
       method: 'DELETE',
-      body: JSON.stringify(),
+      body: JSON.stringify(attractionId),
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
       }
     })
     .then(response => {
-      if(response.ok) {
-        return response;
-      } else {
-        let errorMessage = `${response.status} (${response.statusText})`,
-          error = new Error(errorMessage)
-        throw(error)
-      }
-    })
-    .then(response => response.json())
-    .then(body=> {
-    })
-    .catch(error => console.error(`Error in fetch: ${error.message}`))
+        if (response.ok) {
+          return response;
+        } else {
+          let errorMessage = `${response.status} (${response.statusText})`,
+              error = new Error(errorMessage);
+          throw(error);
+        }
+      })
+      .then(response => response.json())
+      .then(body => {
+        return window.location.href = "/attractions"
+      })
+      .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
 
   addNewReview(formPayload) {
