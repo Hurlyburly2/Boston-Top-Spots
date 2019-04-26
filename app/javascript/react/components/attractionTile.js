@@ -4,7 +4,7 @@ import { Link } from "react-router";
 const AttractionTile = props => {
   let deleteButton
   if (props.currentUser !== null && props.currentUser.role === "admin") {
-     deleteButton = <button onClick={props.handleDeleteAttraction}>Delete Attraction</button>
+     deleteButton = <button id="deleteAttractionButton" onClick={props.handleDeleteAttraction}>Delete Attraction</button>
   }
 
   return (

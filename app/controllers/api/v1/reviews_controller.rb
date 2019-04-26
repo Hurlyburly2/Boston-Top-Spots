@@ -14,10 +14,7 @@ class Api::V1::ReviewsController < ApplicationController
   def destroy
     delete_review = Review.find(params["id"])
     attraction = delete_review.attraction
-    # binding.pry
     delete_review.delete
-    # attractions = AttractionShowSerializer.new(attraction)
-    # reviews = attraction.reviews
     render json: {reviews: attraction.reviews}
   end
 

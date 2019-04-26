@@ -13,6 +13,7 @@ describe("AttractionTile", () => {
         city="Boston"
         state="MA"
         zip="02127"
+        currentUser={null}
       />
     );
   });

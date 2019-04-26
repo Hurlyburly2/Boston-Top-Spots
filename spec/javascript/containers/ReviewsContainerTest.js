@@ -9,6 +9,7 @@ describe('ReviewsContainer', () => {
     wrapper = mount(
       <ReviewsContainer
         reviews={[{id: 1, rating: 5, body: "A great attraction", user_id: 1}]}
+        currentUser={null}
       />
     )
   });
@@ -18,11 +19,10 @@ describe('ReviewsContainer', () => {
    });
 
   it('should render the ReviewTile component with specific props', () => {
-    expect(wrapper.find(ReviewTile).props()).toEqual({
-      id: 1,
-      body: "A great attraction",
-      rating: 5,
-      user: 1
-    });
+    expect(wrapper.find(ReviewTile).props().id).toEqual(1)
+    expect(wrapper.find(ReviewTile).props().body).toEqual("A great attraction")
+    expect(wrapper.find(ReviewTile).props().rating).toEqual(5)
+    expect(wrapper.find(ReviewTile).props().user).toEqual(1)
+    expect(wrapper.find(ReviewTile).props().currentUser).toEqual(null)
   });
 });

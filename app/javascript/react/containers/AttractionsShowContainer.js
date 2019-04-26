@@ -40,7 +40,6 @@ class AttractionsShowContainer extends Component {
       })
       .then(response => response.json())
       .then(body => {
-        // debugger
         this.setState({ reviews: body.reviews })
       })
       .catch(error => console.error(`Error in fetch: ${error.message}`));
@@ -117,7 +116,6 @@ class AttractionsShowContainer extends Component {
       })
       .then(response => response.json())
       .then(body => {
-        // debugger
         this.setState({
           attraction: body.attractions,
           reviews: body.attractions.reviews,
@@ -140,7 +138,8 @@ class AttractionsShowContainer extends Component {
           currentUser={this.state.currentUser}
           handleDeleteAttraction={this.handleDeleteAttraction}
         />
-        <ReviewsContainer reviews={this.state.reviews}
+        <ReviewsContainer
+          reviews={this.state.reviews}
           currentUser={this.state.currentUser}
           handleDeleteReview={this.handleDeleteReview}
         />

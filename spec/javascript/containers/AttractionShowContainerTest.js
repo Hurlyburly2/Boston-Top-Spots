@@ -65,34 +65,22 @@ describe("AttractionsShowContainer", () => {
 
   it("should render the AttractionTile Component with specific props", done => {
     setTimeout(() => {
-      expect(wrapper.find(AttractionTile).props()).toEqual({
-        id: 6,
-        name: "Duck Tours",
-        description: "A splashing good time",
-        address: "123 Boston St.",
-        city: "Boston",
-        state: "MA",
-        zip: "02137"
-      });
+      expect(wrapper.find(AttractionTile).props().id).toEqual(6)
+      expect(wrapper.find(AttractionTile).props().name).toEqual("Duck Tours")
+      expect(wrapper.find(AttractionTile).props().description).toEqual("A splashing good time")
+      expect(wrapper.find(AttractionTile).props().address).toEqual("123 Boston St.")
+      expect(wrapper.find(AttractionTile).props().city).toEqual("Boston")
+      expect(wrapper.find(AttractionTile).props().state).toEqual("MA")
+      expect(wrapper.find(AttractionTile).props().zip).toEqual("02137")
+      expect(wrapper.find(AttractionTile).props().currentUser).toEqual(data.current_user)
       done();
     }, 0);
   });
 
   it("should render the ReviewsContainer with specific props", done => {
     setTimeout(() => {
-      expect(wrapper.find(ReviewsContainer).props()).toEqual({
-        reviews: [
-          {
-            id: 2,
-            rating: 3,
-            body: "This is a review",
-            reviewer: {
-              id: 1,
-              username: "BorisMargarian"
-            }
-          }
-        ]
-      });
+      expect(wrapper.find(ReviewsContainer).props().reviews).toEqual(data.attractions.reviews)
+      expect(wrapper.find(ReviewsContainer).props().currentUser).toEqual(data.current_user)
       done();
     }, 0);
   });
