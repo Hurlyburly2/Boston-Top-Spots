@@ -40,7 +40,8 @@ RSpec.describe Api::V1::AttractionsController, type: :controller do
     end
 
     it "should delete the attraction" do
-      attraction = Attraction.create(name: "Duck Tours", description: "A splashing good time!", address: "123 Boston St.", city: "Boston", state: "MA", zip: "01234")
+      user = User.create!(username: "UnicornBoy1", email: "unicornlova124@gmail.com", password: "binicorn123")
+      attraction = Attraction.create(name: "Duck Tours", description: "A splashing good time!", address: "123 Boston St.", city: "Boston", state: "MA", zip: "01234", user: user)
 
       get :destroy, params: { id: attraction.id }
       return_json = JSON.parse(response.body)

@@ -6,10 +6,6 @@ class Attraction < ApplicationRecord
   validates :state, presence: true
   validates :zip, presence: true
 
-<<<<<<< HEAD
-  has_many :reviews
-  belongs_to :user 
-=======
   has_many :reviews, dependent: :destroy
->>>>>>> master
+  belongs_to :user
 end
