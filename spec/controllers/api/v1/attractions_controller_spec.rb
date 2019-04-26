@@ -38,5 +38,17 @@ RSpec.describe Api::V1::AttractionsController, type: :controller do
       expect(return_json["attractions"]["reviews"][0]["reviewer"]["username"]).to eq("UnicornBoy1")
       expect(return_json["attractions"]["reviews"][0]["reviewer"]["email"]).to eq(nil)
     end
+
+    it "should delete the attraction" do
+      attraction = Attraction.create(name: "Duck Tours", description: "A splashing good time!", address: "123 Boston St.", city: "Boston", state: "MA", zip: "01234")
+
+      get :destroy, params: { id: attraction.id }
+      return_json = JSON.parse(response.body)
+
+      expect(response.status).to eq 200
+      expect(response.content_type).to eq ("application/json")
+
+      expect(return_json["responseText"]).to eq("Attraction was successfully deleted")
+    end
   end
 end
