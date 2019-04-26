@@ -2,8 +2,9 @@ import React from 'react'
 
 const ReviewTile = (props) => {
   let deleteButton
+  let buttonId = `deleteButton${props.id}`
   if (props.currentUser !== null && props.currentUser.role === "admin") {
-     deleteButton = <button onClick={props.handleDeleteReview}>Delete Attraction</button>
+     deleteButton = <button id={buttonId} onClick={props.handleDeleteReview}>Delete Attraction</button>
   }
   return (
     <div className="">
