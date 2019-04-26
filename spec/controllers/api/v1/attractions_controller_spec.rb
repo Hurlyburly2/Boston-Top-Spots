@@ -19,7 +19,6 @@ RSpec.describe Api::V1::AttractionsController, type: :controller do
       expect(return_json["attractions"]["city"]).to eq("Boston")
       expect(return_json["attractions"]["state"]).to eq("MA")
       expect(return_json["attractions"]["zip"]).to eq("01234")
-      # binding.pry
       expect(return_json["user"].id).to eq(attraction.user.id)
     end
 

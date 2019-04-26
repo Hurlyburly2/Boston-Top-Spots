@@ -38,9 +38,9 @@ RSpec.describe Attraction, type: :model do
     it "is not valid without a zip" do
       attraction.zip = nil
       expect(attraction).to_not be_valid
-        end
-    it "is not valid without a user_id" do
+    end
 
+    it "is not valid without a user_id" do
       attraction.user_id = nil
       expect(attraction).to_not be_valid
     end
