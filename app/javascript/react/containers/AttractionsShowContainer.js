@@ -15,6 +15,35 @@ class AttractionsShowContainer extends Component {
     };
     this.addNewReview = this.addNewReview.bind(this)
     this.handleDeleteAttraction = this.handleDeleteAttraction.bind(this)
+    this.handleDeleteReview = this.handleDeleteReview.bind(this)
+
+  }
+
+  handleDeleteReview(review_id) {
+    fetch(`/api/v1/reviews/${review_id}`, {
+      credentials: 'same-origin',
+      method: 'DELETE',
+      body: JSON.stringify(review_id),
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      }
+    })
+    .then(response => {
+        if (response.ok) {
+          return response;
+        } else {
+          let errorMessage = `${response.status} (${response.statusText})`,
+              error = new Error(errorMessage);
+          throw(error);
+        }
+      })
+      .then(response => response.json())
+      .then(body => {
+        // debugger
+        this.setState({ reviews: body.reviews })
+      })
+      .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
 
   handleDeleteAttraction(event) {
@@ -88,6 +117,7 @@ class AttractionsShowContainer extends Component {
       })
       .then(response => response.json())
       .then(body => {
+        // debugger
         this.setState({
           attraction: body.attractions,
           reviews: body.attractions.reviews,
@@ -110,7 +140,10 @@ class AttractionsShowContainer extends Component {
           currentUser={this.state.currentUser}
           handleDeleteAttraction={this.handleDeleteAttraction}
         />
-        <ReviewsContainer reviews={this.state.reviews} />
+        <ReviewsContainer reviews={this.state.reviews}
+          currentUser={this.state.currentUser}
+          handleDeleteReview={this.handleDeleteReview}
+        />
         <ReviewForm
           addNewReview={this.addNewReview}
         />

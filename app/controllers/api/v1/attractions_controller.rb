@@ -10,7 +10,6 @@ class Api::V1::AttractionsController < ApplicationController
   end
 
   def destroy
-    # binding.pry
     deleted_attraction = Attraction.find(params["id"])
     deleted_attraction.reviews.delete_all
     deleted_attraction.delete
