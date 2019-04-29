@@ -32,10 +32,6 @@ ul {
 .attraction-tile-image {
   width: 150px;
   height: 190px;
-  /* display: flex; */
-  /* flex-direction: row; */
-  /* white-space: nowrap; */
-  /* overflow: hidden; */
   text-overflow: ellipses;
 }
 
@@ -46,8 +42,6 @@ ul {
   padding: 5px 5px 5px 5px;
   margin: 20px;
   text-align: center;
-  /* display: flex; */
-  /* justify-content: space-between */
 }
 
 .attraction-tile-li a {
