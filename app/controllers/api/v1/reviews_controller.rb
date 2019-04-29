@@ -1,5 +1,13 @@
 class Api::V1::ReviewsController < ApplicationController
 
+  def index
+    reviews = current_user.reviews
+    serialized_reviews = reviews.map do |review|
+      ReviewSerializer.new(review)
+    end
+    render json: {reviews: serialized_reviews}
+  end
+
   def create
     review = Review.new(review_params)
 
