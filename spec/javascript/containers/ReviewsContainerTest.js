@@ -19,7 +19,10 @@ describe('ReviewsContainer', () => {
           }
     wrapper = mount(
       <ReviewsContainer
-        reviews={[{id: 1, rating: 5, body: "A great attraction", user_id: 1}]}
+        reviews={[{id: 1, rating: 5, body: "A great attraction", reviewer: {
+          id: 1,
+          username: "BorisMargarian"
+        }}]}
         currentUser={currentUser}
         handleDeleteReview={onClick}
       />
@@ -34,7 +37,7 @@ describe('ReviewsContainer', () => {
     expect(wrapper.find(ReviewTile).props().id).toEqual(1)
     expect(wrapper.find(ReviewTile).props().body).toEqual("A great attraction")
     expect(wrapper.find(ReviewTile).props().rating).toEqual(5)
-    expect(wrapper.find(ReviewTile).props().user).toEqual(1)
+    expect(wrapper.find(ReviewTile).props().user.id).toEqual(1)
     expect(wrapper.find(ReviewTile).props().currentUser).toEqual(currentUser)
   });
 

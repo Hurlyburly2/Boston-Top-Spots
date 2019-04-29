@@ -96,6 +96,7 @@ class ReviewForm extends Component {
     return (
       <form className="" onSubmit={this.handleSubmit}>
         {errorDiv}
+        <h3>Add New Review Below</h3>
         <RatingSelector
           label="Rating: "
           name="rating"
