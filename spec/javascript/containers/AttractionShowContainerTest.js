@@ -33,7 +33,7 @@ describe("AttractionsShowContainer", () => {
           }
         ]
       },
-      current_user: {
+      user: {
         id: 2,
         email: "heather.michelle.garcia@gmail.com",
         created_at: "2019-04-23T18:00:06.653Z",
@@ -72,7 +72,7 @@ describe("AttractionsShowContainer", () => {
       expect(wrapper.find(AttractionTile).props().city).toEqual("Boston")
       expect(wrapper.find(AttractionTile).props().state).toEqual("MA")
       expect(wrapper.find(AttractionTile).props().zip).toEqual("02137")
-      expect(wrapper.find(AttractionTile).props().currentUser).toEqual(data.current_user)
+      expect(wrapper.find(AttractionTile).props().currentUser).toEqual(data.user)
       done();
     }, 0);
   });
@@ -80,7 +80,7 @@ describe("AttractionsShowContainer", () => {
   it("should render the ReviewsContainer with specific props", done => {
     setTimeout(() => {
       expect(wrapper.find(ReviewsContainer).props().reviews).toEqual(data.attractions.reviews)
-      expect(wrapper.find(ReviewsContainer).props().currentUser).toEqual(data.current_user)
+      expect(wrapper.find(ReviewsContainer).props().currentUser).toEqual(data.user)
       done();
     }, 0);
   });
