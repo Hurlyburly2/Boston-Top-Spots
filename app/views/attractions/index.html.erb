@@ -1,15 +1,26 @@
 <div>
+  <div class="banner-image">
+  <%= image_tag "BostonTopSpots.jpg" %>
+  </div>
+  
+  <div class="attraction-link">
+  <%= link_to "Add a New Attraction!", new_attraction_path %>
+  </div>
 
   <ul>
   <% if @attractions %>
     <% @attractions.each do |attraction| %>
-      <li>
+      <li class="attraction-tile-li">
+        <div class="attraction-tile-image" >
+        <%= image_tag "Ducklings-Filler-Image.jpg" %>
+        <div class="attraction-text">
         <%= link_to attraction.name, attraction_path(attraction) %>
+        </div>
+      </div>
       </li>
     <% end %>
   <% end %>
   </ul>
 
-  <%= link_to "Add a New Attraction!", new_attraction_path %>
 
 </div>

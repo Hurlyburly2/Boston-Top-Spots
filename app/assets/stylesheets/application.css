@@ -15,3 +15,61 @@
  *= require foundation_and_overrides
 
  */
+
+body {
+  font-family: 'Vollkorn', serif;
+}
+
+h1 {
+  font-family: 'Montserrat', sans-serif;
+
+}
+
+ul {
+  list-style-type: none;
+}
+
+.attraction-tile-image {
+  width: 150px;
+  height: 190px;
+  /* display: flex; */
+  /* flex-direction: row; */
+  /* white-space: nowrap; */
+  /* overflow: hidden; */
+  text-overflow: ellipses;
+}
+
+.attraction-tile-li {
+  vertical-align: middle;
+  display: inline-block;
+  background-color: #333333;
+  padding: 5px 5px 5px 5px;
+  margin: 20px;
+  text-align: center;
+  /* display: flex; */
+  /* justify-content: space-between */
+}
+
+.attraction-tile-li a {
+  color: white;
+}
+
+.attraction-text {
+  margin-top: 10px;
+  line-height: 1.25;
+}
+
+.attraction-link {
+  margin-left: 35px;
+}
+
+.dog-image {
+  width: 32px;
+  display: inline-block;
+  margin-left: 35px;
+
+}
+
+.name h1 {
+  display: inline-block;
+}

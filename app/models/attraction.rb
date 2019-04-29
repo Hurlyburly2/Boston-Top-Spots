@@ -1,5 +1,5 @@
 class Attraction < ApplicationRecord
-  validates :name, presence: true
+  validates :name, presence: true, length: { maximum: 37 }
   validates :description, presence: true
   validates :address, presence: true
   validates :city, presence: true
