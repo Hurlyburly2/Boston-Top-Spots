@@ -11,7 +11,7 @@ const ReviewTile = props => {
     );
   }
   return (
-    <div className="reviewSituation">
+    <div>
       <li>
         <h3>Rating: {props.rating}</h3>
         <p>{props.body}</p>
