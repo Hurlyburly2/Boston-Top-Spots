@@ -10,10 +10,10 @@ if Rails.env.development? || Rails.env.production?
   AdminSeeder.seed!
 end
 
-if Rails.env.development?
+if Rails.env.development? || Rails.env.production?
   AttractionSeeder.seed!
 end
 
-if Rails.env.development?
+if Rails.env.development? || Rails.env.production?
   ReviewSeeder.seed!
 end
