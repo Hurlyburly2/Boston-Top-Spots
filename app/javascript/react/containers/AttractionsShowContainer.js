@@ -119,7 +119,7 @@ class AttractionsShowContainer extends Component {
         this.setState({
           attraction: body.attractions,
           reviews: body.attractions.reviews,
-          currentUser: body.current_user
+          currentUser: body.user
         });
       })
       .catch(error => console.error(`Error in fetch: ${error.message}`));

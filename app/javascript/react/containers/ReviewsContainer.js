@@ -16,7 +16,7 @@ class ReviewsContainer extends Component {
           id={review.id}
           body={review.body}
           rating={review.rating}
-          user={review.user_id}
+          user={review.reviewer}
           handleDeleteReview={handleClick}
           currentUser={this.props.currentUser}
         />

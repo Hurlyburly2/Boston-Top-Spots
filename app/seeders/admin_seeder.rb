@@ -3,7 +3,8 @@ class AdminSeeder
     {username: "BorisMargarian", email: "margarian.boris@gmail.com", password: "letsnotshout", role: "admin"},
     {username: "HeatherGarcia", email: "heather.michelle.garcia@gmail.com", password: "letsnotshout", role: "admin"},
     {username: "AllisonKemmerle", email: "allison.kemmerle@gmail.com", password: "letsnotshout", role: "admin"},
-    {username: "DouglasSimon", email: "dougdougmann@gmail.com", password: "letsnotshout", role: "admin"}
+    {username: "DouglasSimon", email: "dougdougmann@gmail.com", password: "letsnotshout", role: "admin"},
+    {username: "NewUser", email: "new.user@gmail.com", password: "letsnotshout", role: "user"}
   ]
 
   def self.seed!
