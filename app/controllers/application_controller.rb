@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
    protected
 
    def configure_permitted_parameters
-     devise_parameter_sanitizer.permit(:sign_up, keys: [:username, :email, :password])
+     devise_parameter_sanitizer.permit(:sign_up, keys: [:username, :email, :password, :profile_photo])
    end
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
