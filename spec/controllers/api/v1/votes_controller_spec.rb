@@ -30,9 +30,7 @@ RSpec.describe Api::V1::VotesController, type: :controller do
           user: user
         }
       }
-
       post :create, {params:  params}
-
       expect(review.user).to be(user)
     end
 
@@ -64,14 +62,11 @@ RSpec.describe Api::V1::VotesController, type: :controller do
           user_id: user.id
         }
       }
-
       post :create, {params:  vote_params}
       returned_json = JSON.parse(response.body)
-      binding.pry
 
       expect(response.status).to eq 200
       expect(response.content_type).to eq("application/json")
-
       expect(returned_json).to be_kind_of(Hash)
       expect(returned_json).to_not be_kind_of(Array)
       expect(returned_json["attractions"]["reviews"][0]["votes"][0]["value"]).to eq 1

@@ -6,7 +6,6 @@ const ReviewTile = (props) => {
   if (props.currentUser !== null && props.currentUser.role === "admin") {
      deleteButton = <button id={deleteButtonId} onClick={props.handleDeleteReview}>Delete Review</button>
   }
-
   let upvoteButton
   let upvoteButtonId = `${props.id}`
   let downvoteButton
@@ -22,7 +21,7 @@ const ReviewTile = (props) => {
         <p>{props.body}</p>
       </li>
       {deleteButton}<br/>
-      {upvoteButton} {props.score} {downvoteButton}
+      {upvoteButton} <div className="score">{props.score}</div> {downvoteButton}
     </div>
   )
 }

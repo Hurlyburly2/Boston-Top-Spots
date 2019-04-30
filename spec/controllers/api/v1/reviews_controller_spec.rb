@@ -25,7 +25,6 @@ RSpec.describe Api::V1::ReviewsController, type: :controller do
           user: user
         }
       }
-
       post :create, {params:  params}
       expect(attraction.user).to be(user)
     end
@@ -53,10 +52,8 @@ RSpec.describe Api::V1::ReviewsController, type: :controller do
           user_id: user.id
         }
       }
-
       post :create, params:  params
       returned_json = JSON.parse(response.body)
-
 
       expect(response.status).to eq 200
       expect(response.content_type).to eq("application/json")

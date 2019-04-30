@@ -122,4 +122,28 @@ describe("AttractionsShowContainer", () => {
       done()
     }, 0)
   });
+
+  it("should post a new vote", (done) => {
+    let params = {
+      score: 1,
+      vote: {
+        value: 1,
+        review_id: 3,
+        user_id: 2
+      }
+    }
+
+    fetchMock.post(`/api/v1/votes`, {
+      status: 201,
+      body: params
+    });
+    setTimeout(() => {
+      wrapper.find('.upvote').simulate('click')
+      setTimeout(() => {
+        expect(wrapper.find('.score')).toBePresent()
+        expect(wrapper.find('.score').length).toEqual(1)
+        done()
+      }, 0)
+    }, 0)
+  });
 });
