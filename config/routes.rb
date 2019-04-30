@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :attractions, only: [:show, :destroy]
       resources :reviews, only: [:create, :destroy]
+      resources :votes, only: [:create]
     end
   end
 end

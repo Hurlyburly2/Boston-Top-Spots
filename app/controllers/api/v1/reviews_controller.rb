@@ -4,7 +4,14 @@ class Api::V1::ReviewsController < ApplicationController
     review = Review.new(review_params)
 
     if review.save
-      render json: {review: review}
+      binding.pry
+      attractions = AttractionShowSerializer.new(Attraction.find(params[:attraction_id]))
+      user = current_user
+      binding.pry
+      render json: {
+        attractions: attractions,
+        user: user
+      }
     else
       render json: { error: review.errors.full_messages },
       status: :unprocessable_entity
