@@ -4,6 +4,5 @@ class ReviewsController < ApplicationController
   end
 
   def destroy
-    binding.pry
   end
 end
