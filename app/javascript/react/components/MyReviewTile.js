@@ -3,9 +3,16 @@ import React from "react";
 const MyReviewTile = props => {
   let deleteButton;
   let deleteButtonId = `deleteButton${props.id}`;
+  let editButton;
+  let editButtonId = `editButton${props.id}`;
   deleteButton = (
     <button id={deleteButtonId} onClick={props.handleDeleteReview}>
       Delete
+    </button>
+  );
+  editButton = (
+    <button id={editButtonId} onClick={props.handleEditReview}>
+      Edit
     </button>
   );
 
@@ -22,7 +29,7 @@ const MyReviewTile = props => {
           {props.rating}
         </div>
         <div className="review-index-buttons">
-          <button id="edit">Edit</button>
+          {editButton}
           {deleteButton}
         </div>
       </li>

@@ -8,14 +8,7 @@ class ReviewForm extends Component {
     this.state = {
       body: "",
       rating: "",
-      ratingOptions: [
-        "0 Stars",
-        "1 Star",
-        "2 Stars",
-        "3 Stars",
-        "4 Stars",
-        "5 Stars"
-      ],
+      ratingOptions: ["1 Star", "2 Stars", "3 Stars", "4 Stars", "5 Stars"],
       errors: {}
     };
     this.handleChange = this.handleChange.bind(this);
@@ -116,7 +109,12 @@ class ReviewForm extends Component {
           <button className="button" onClick={this.handleClear}>
             Clear
           </button>
-          <input id="submit-button" className="button" type="submit" value="Submit" />
+          <input
+            id="submit-button"
+            className="button"
+            type="submit"
+            value="Submit"
+          />
         </div>
       </form>
     );
