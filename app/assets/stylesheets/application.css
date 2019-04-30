@@ -120,3 +120,25 @@ ul {
 .review-index-title {
   margin-left: 35px;
 }
+
+.attraction-form {
+  margin: 0 3%;
+}
+
+.small-form {
+  display: inline-block;
+  width: 33%;
+}
+
+.medium-form {
+  display: inline-block;
+  width: 49.8%;
+}
+
+.submit-button {
+  background-color: #333333;
+}
+
+.attraction-image {
+  float: left;
+}
