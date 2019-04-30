@@ -17,12 +17,16 @@
  */
 
 body {
-  font-family: 'Vollkorn', serif;
+  font-family: "Vollkorn", serif;
 }
 
-h1 {
-  font-family: 'Montserrat', sans-serif;
-
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Montserrat", sans-serif;
 }
 
 ul {
@@ -57,13 +61,62 @@ ul {
   margin-left: 35px;
 }
 
+.attraction-link {
+  height: 25px;
+  background-color: #333333;
+}
+
+.banner-image {
+  position: relative;
+  text-align: center;
+  color: black;
+}
+
+.bottom-center {
+  position: absolute;
+  text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #fff,
+    0 0 50px #fff, 0 0 60px #fff, 0 0 70px #fff;
+  top: 8px;
+  left: 16px;
+}
+
 .dog-image {
   width: 32px;
   display: inline-block;
   margin-left: 35px;
-
 }
 
 .name h1 {
   display: inline-block;
+}
+
+.reviewSituation {
+  height: 190px;
+  display: flex;
+  flex-direction: column;
+}
+
+.review-tile-li {
+  width: 100%;
+  margin: 20px;
+}
+
+.review-tile-image {
+  text-align: center;
+  color: white;
+  background-color: #333333;
+  padding: 5px 5px 5px 5px;
+  width: 150px;
+  text-overflow: ellipses;
+  float: left;
+  margin-right: 20px;
+}
+
+.review-text {
+  margin-top: 10px;
+  line-height: 1.25;
+}
+
+.review-index-title {
+  margin-left: 35px;
 }
