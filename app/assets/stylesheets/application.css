@@ -18,6 +18,12 @@
 
 body {
   font-family: "Vollkorn", serif;
+  background-image: url("BostonSkyline.png");
+  background-size: 100% auto;
+  /* background-position: 50% 150%; */
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 h1,
@@ -39,6 +45,27 @@ ul {
   text-overflow: ellipses;
 }
 
+.spanImage {
+  margin: 0 auto;
+}
+
+.imageText {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+}
+
+.imageText h1 {
+  color: white;
+  font-size: 100px;
+}
+
+.imageToSpan {
+  object-fit: cover;
+  width: 100%;
+  height: 200px;
+}
+
 .attraction-tile-li {
   vertical-align: middle;
   display: inline-block;
@@ -58,26 +85,30 @@ ul {
 }
 
 .attraction-link {
-  margin-left: 35px;
+  height: 25px;
+  background-color: #FA4540;
 }
 
-.attraction-link {
-  height: 25px;
-  background-color: #333333;
+.attractions-container {
+  margin: 0 10%;
 }
 
 .banner-image {
   position: relative;
-  text-align: center;
+  margin-left: 10%;
   color: black;
 }
 
+.navBarMargins {
+  margin: 0 10%;
+}
+
 .bottom-center {
-  position: absolute;
   text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #fff,
     0 0 50px #fff, 0 0 60px #fff, 0 0 70px #fff;
+    /* position: absolute;
   top: 8px;
-  left: 16px;
+  left: 16px; */
 }
 
 .dog-image {
