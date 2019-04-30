@@ -1,5 +1,5 @@
 class ReviewSerializer < ActiveModel::Serializer
-  attributes :id, :rating, :body, :reviewer, :score
+  attributes :id, :rating, :body, :reviewer, :votes, :score
 
   belongs_to :attraction
   belongs_to :user
@@ -12,11 +12,15 @@ class ReviewSerializer < ActiveModel::Serializer
     return author
   end
 
+  def votes
+    return object.votes
+  end
+
   def score
     score = 0
     object.votes.each do |vote|
       score += vote.value
     end
-    return score 
+    return score
   end
 end

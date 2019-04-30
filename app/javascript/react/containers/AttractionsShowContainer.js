@@ -51,7 +51,6 @@ class AttractionsShowContainer extends Component {
       })
       .then(response => response.json())
       .then(body => {
-        debugger 
         this.setState({
           attraction: body.attractions,
           reviews: body.attractions.reviews,
@@ -139,7 +138,6 @@ class AttractionsShowContainer extends Component {
       })
       .then(response => response.json())
       .then(body => {
-        debugger
         this.setState({
           attractions: body.attractions,
           reviews: body.attractions.reviews,

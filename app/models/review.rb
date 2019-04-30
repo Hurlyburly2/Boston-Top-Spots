@@ -6,12 +6,12 @@ class Review < ApplicationRecord
   has_many :votes
   belongs_to :attraction
 
-  #method to calculate score?
-  #def get_score
-    #score = 0
-    #review.votes each do |vote|
-      #score += vote.value
-    #end
-    #score
-  #end
+
+  def get_score
+    score = 0
+    review.votes each do |vote|
+      score += vote.value
+    end
+    score
+  end
 end
