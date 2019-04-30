@@ -3,9 +3,10 @@ class Api::V1::VotesController < ApplicationController
     vote = Vote.new(vote_params)
 
     if vote.save
-      review = Review.find(params[:review_id])
+      review = Review.find(vote.review.id)
       attractions = AttractionShowSerializer.new(review.attraction)
       user = current_user
+
       render json: {
         attractions: attractions,
         user: user

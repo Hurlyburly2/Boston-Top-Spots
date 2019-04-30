@@ -32,6 +32,7 @@ RSpec.describe Api::V1::VotesController, type: :controller do
       }
 
       post :create, {params:  params}
+
       expect(review.user).to be(user)
     end
 
@@ -56,27 +57,26 @@ RSpec.describe Api::V1::VotesController, type: :controller do
         user: user,
         attraction: attraction)
 
-        params = {
-        vote: {
+        vote_params = {
+          vote: {
           value: 1,
-          review: review,
-          user: user
+          review_id: review.id,
+          user_id: user.id
         }
       }
 
-      post :create, params:  params
+      post :create, {params:  vote_params}
       returned_json = JSON.parse(response.body)
       binding.pry
 
       expect(response.status).to eq 200
       expect(response.content_type).to eq("application/json")
 
-      # expect(returned_json).to be_kind_of(Hash)
-      # expect(returned_json).to_not be_kind_of(Array)
-      # expect(returned_json["attractions"]["reviews"][0]["body"]).to eq "A splashing good time"
-      # expect(returned_json["attractions"]["id"]).to eq attraction.id
-      # expect(returned_json["attractions"]["reviews"][0]["reviewer"]["id"]).to eq user.id
-      # expect(returned_json["attractions"]["reviews"][0]["rating"]).to eq 5
+      expect(returned_json).to be_kind_of(Hash)
+      expect(returned_json).to_not be_kind_of(Array)
+      expect(returned_json["attractions"]["reviews"][0]["votes"][0]["value"]).to eq 1
+      expect(returned_json["attractions"]["reviews"][0]["votes"][0]["review_id"]).to eq review.id
+      expect(returned_json["attractions"]["reviews"][0]["votes"][0]["user_id"]).to eq user.id
     end
   end
 end
