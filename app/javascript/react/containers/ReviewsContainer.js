@@ -17,8 +17,10 @@ class ReviewsContainer extends Component {
           body={review.body}
           rating={review.rating}
           user={review.reviewer}
+          score={review.score}
           handleDeleteReview={handleClick}
           currentUser={this.props.currentUser}
+          handleVote={this.props.handleVote}
         />
       );
     });
