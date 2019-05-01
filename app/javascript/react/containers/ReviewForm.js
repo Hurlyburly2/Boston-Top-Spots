@@ -62,8 +62,13 @@ class ReviewForm extends Component {
   }
 
   render() {
-    const OPTIONS =
-      ["1 Terry", "2 STerry's", "3 Terry's", "4 Terry's", "5 Terry's"]
+    const OPTIONS = [
+      "1 Terry",
+      "2 Terry's",
+      "3 Terry's",
+      "4 Terry's",
+      "5 Terry's"
+    ];
     let ratingIterator = 0;
     let optionElements = OPTIONS.map(option => {
       ratingIterator++;
