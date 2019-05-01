@@ -1,15 +1,16 @@
-import React from 'react'
+import React from "react";
 
 const RatingSelector = props => {
-  return(
+  return (
     <div>
-    <label>{props.label}
-      <select name={props.name} value={props.value} onChange={props.onChange}>
-        {props.options}
-      </select>
-    </label>
+      <label>
+        {props.label}
+        <select name={props.name} value={props.value} onChange={props.onChange}>
+          {props.options}
+        </select>
+      </label>
     </div>
-  )
-}
+  );
+};
 
-export default RatingSelector
+export default RatingSelector;

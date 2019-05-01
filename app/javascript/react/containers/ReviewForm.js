@@ -8,14 +8,6 @@ class ReviewForm extends Component {
     this.state = {
       body: "",
       rating: "",
-      ratingOptions: [
-        "0 Stars",
-        "1 Star",
-        "2 Stars",
-        "3 Stars",
-        "4 Stars",
-        "5 Stars"
-      ],
       errors: {}
     };
     this.handleChange = this.handleChange.bind(this);
@@ -70,8 +62,15 @@ class ReviewForm extends Component {
   }
 
   render() {
-    let ratingIterator = -1;
-    let optionElements = this.state.ratingOptions.map(option => {
+    const OPTIONS = [
+      "1 Terry",
+      "2 Terry's",
+      "3 Terry's",
+      "4 Terry's",
+      "5 Terry's"
+    ];
+    let ratingIterator = 0;
+    let optionElements = OPTIONS.map(option => {
       ratingIterator++;
       return (
         <option key={ratingIterator} value={ratingIterator}>
@@ -116,7 +115,12 @@ class ReviewForm extends Component {
           <button className="button" onClick={this.handleClear}>
             Clear
           </button>
-          <input id="submit-button" className="button" type="submit" value="Submit" />
+          <input
+            id="submit-button"
+            className="button"
+            type="submit"
+            value="Submit"
+          />
         </div>
       </form>
     );
