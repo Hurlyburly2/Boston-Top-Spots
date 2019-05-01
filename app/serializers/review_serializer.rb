@@ -9,6 +9,7 @@ class ReviewSerializer < ActiveModel::Serializer
     author = {}
     author["id"] = object.user.id
     author["username"] = object.user.username
+    author["profile_photo"] = object.user.profile_photo
     return author
   end
 

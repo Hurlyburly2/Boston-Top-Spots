@@ -1,57 +1,57 @@
 import React from "react";
-import doggoGrey from "./doggoGrey.png";
-import doggoBlack from "./doggoBlack.png";
+// import doggoGrey from "../../../../public/doggoGrey.png";
+// import doggoBlack from "../../../../public/doggoBlack.png";
 
 const ReviewTile = props => {
   let rating;
   if (props.rating === 1) {
     rating = (
       <div className="doggo">
-        <img src={doggoBlack} alt="doggoBlack" />
-        <img src={doggoBlack} alt="doggoGrey" />
-        <img src={doggoGrey} alt="doggoGrey" />
-        <img src={doggoGrey} alt="doggoGrey" />
-        <img src={doggoGrey} alt="doggoGrey" />
+        <img src="/doggoBlack.png" alt="doggoBlack" />
+        <img src="/doggoGrey.png" alt="doggoGrey" />
+        <img src="/doggoGrey.png" alt="doggoGrey" />
+        <img src="/doggoGrey.png" alt="doggoGrey" />
+        <img src="/doggoGrey.png" alt="doggoGrey" />
       </div>
     );
   } else if (props.rating === 2) {
     rating = (
       <div className="doggo">
-        <img src={doggoBlack} alt="doggoBlack" />
-        <img src={doggoBlack} alt="doggoBlack" />
-        <img src={doggoGrey} alt="doggoGrey" />
-        <img src={doggoGrey} alt="doggoGrey" />
-        <img src={doggoGrey} alt="doggoGrey" />
+        <img src="/doggoBlack.png" alt="doggoBlack" />
+        <img src="/doggoBlack.png" alt="doggoBlack" />
+        <img src="/doggoGrey.png" alt="doggoGrey" />
+        <img src="/doggoGrey.png" alt="doggoGrey" />
+        <img src="/doggoGrey.png" alt="doggoGrey" />
       </div>
     );
   } else if (props.rating === 3) {
     rating = (
       <div className="doggo">
-        <img src={doggoBlack} alt="doggoBlack" />
-        <img src={doggoBlack} alt="doggoBlack" />
-        <img src={doggoBlack} alt="doggoBlack" />
-        <img src={doggoGrey} alt="doggoGrey" />
-        <img src={doggoGrey} alt="doggoGrey" />
+        <img src="/doggoBlack.png" alt="doggoBlack" />
+        <img src="/doggoBlack.png" alt="doggoBlack" />
+        <img src="/doggoBlack.png" alt="doggoBlack" />
+        <img src="/doggoGrey.png" alt="doggoGrey" />
+        <img src="/doggoGrey.png" alt="doggoGrey" />
       </div>
     );
   } else if (props.rating === 4) {
     rating = (
       <div className="doggo">
-        <img src={doggoBlack} alt="doggoBlack" />
-        <img src={doggoBlack} alt="doggoBlack" />
-        <img src={doggoBlack} alt="doggoBlack" />
-        <img src={doggoBlack} alt="doggoBlack" />
-        <img src={doggoGrey} alt="doggoGrey" />
+        <img src="/doggoBlack.png" alt="doggoBlack" />
+        <img src="/doggoBlack.png" alt="doggoBlack" />
+        <img src="/doggoBlack.png" alt="doggoBlack" />
+        <img src="/doggoBlack.png" alt="doggoBlack" />
+        <img src="/doggoGrey.png" alt="doggoGrey" />
       </div>
     );
   } else if (props.rating === 5) {
     rating = (
       <div className="doggo">
-        <img src={doggoBlack} alt="doggoBlack" />
-        <img src={doggoBlack} alt="doggoBlack" />
-        <img src={doggoBlack} alt="doggoBlack" />
-        <img src={doggoBlack} alt="doggoBlack" />
-        <img src={doggoBlack} alt="doggoBlack" />
+        <img src="/doggoBlack.png" alt="doggoBlack" />
+        <img src="/doggoBlack.png" alt="doggoBlack" />
+        <img src="/doggoBlack.png" alt="doggoBlack" />
+        <img src="/doggoBlack.png" alt="doggoBlack" />
+        <img src="/doggoBlack.png" alt="doggoBlack" />
       </div>
     );
   }
