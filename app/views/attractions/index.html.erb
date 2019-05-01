@@ -19,14 +19,16 @@
   <ul class="attractions-container">
   <% if @attractions %>
     <% @attractions.each do |attraction| %>
-      <li class="attraction-tile-li">
-        <div class="attraction-tile-image" >
-        <img src="<%= attraction.image_url %>" />
-        <div class="attraction-text">
-          <%= link_to attraction.name, attraction_path(attraction) %>
-        </div>
-      </div>
-      </li>
+      <a href = "/attractions/<%= attraction.id %>">
+        <li class="attraction-tile-li">
+          <div class="attraction-tile-image" >
+            <img src="<%= attraction.image_url %>", class="attraction_tile_actual_image" />
+          </div>
+          <div class="attraction-text">
+            <%= link_to attraction.name, attraction_path(attraction) %>
+          </div>
+        </li>
+      </a>
     <% end %>
   <% end %>
   </ul>

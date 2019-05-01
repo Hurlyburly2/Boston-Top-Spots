@@ -113,7 +113,7 @@ class ReviewForm extends Component {
         />
 
         <div className="button-group">
-          <button className="button" onClick={this.handleClear}>
+          <button className="button" onClick={this.handleClear} id="clear-button">
             Clear
           </button>
           <input id="submit-button" className="button" type="submit" value="Submit" />

@@ -16,14 +16,16 @@ const MyReviewTile = props => {
           <img src={props.attraction_image} />
           {props.attraction_name}
         </div>
-        <div className="review-text">
-          {props.body}
-          <br />
-          {props.rating}
-        </div>
-        <div className="review-index-buttons">
-          <button id="edit">Edit</button>
-          {deleteButton}
+        <div className="review-content">
+          <div id="review-text">
+            {props.body}
+            <br />
+            {props.rating}
+          </div>
+          <div className="review-index-buttons">
+            <button id="edit">Edit</button>
+            {deleteButton}
+          </div>
         </div>
       </li>
     </div>
