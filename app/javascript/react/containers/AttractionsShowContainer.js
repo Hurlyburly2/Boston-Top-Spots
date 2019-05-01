@@ -26,7 +26,7 @@ class AttractionsShowContainer extends Component {
     if (vote == "upvote") {
       formPayload["value"] = 1
     } else {
-    formPayload["value"] = -1
+      formPayload["value"] = -1
     }
     formPayload["review_id"] = event.target.id
     formPayload["user_id"] = this.state.currentUser.id
@@ -41,23 +41,23 @@ class AttractionsShowContainer extends Component {
       }
     })
     .then(response => {
-        if (response.ok) {
-          return response;
-        } else {
-          let errorMessage = `${response.status} (${response.statusText})`,
-              error = new Error(errorMessage);
-          throw(error);
-        }
-      })
-      .then(response => response.json())
-      .then(body => {
-        this.setState({
-          attraction: body.attractions,
-          reviews: body.attractions.reviews,
-          currentUser: body.user
-        });
-      })
-      .catch(error => console.error(`Error in fetch: ${error.message}`));
+      if (response.ok) {
+        return response;
+      } else {
+        let errorMessage = `${response.status} (${response.statusText})`,
+        error = new Error(errorMessage);
+        throw(error);
+      }
+    })
+    .then(response => response.json())
+    .then(body => {
+      this.setState({
+        attraction: body.attractions,
+        reviews: body.attractions.reviews,
+        currentUser: body.user
+      });
+    })
+    .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
 
   handleDeleteReview(review_id) {

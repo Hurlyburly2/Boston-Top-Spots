@@ -13,7 +13,6 @@ class Api::V1::ReviewsController < ApplicationController
     if review.save
       attractions = AttractionShowSerializer.new(review.attraction)
       user = current_user
-      #
       render json: {
         attractions: attractions,
         user: user

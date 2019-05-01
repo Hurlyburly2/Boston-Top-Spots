@@ -6,7 +6,6 @@ class Review < ApplicationRecord
   has_many :votes
   belongs_to :attraction
 
-
   def get_score
     score = 0
     review.votes each do |vote|
