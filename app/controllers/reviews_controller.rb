@@ -8,7 +8,7 @@ class ReviewsController < ApplicationController
   end
 
   def edit
-    @ratingOptions = [["1 Star", 1], ["2 Stars", 2], ["3 Stars", 3], ["4 Stars", 4], ["5 Stars", 5]]
+    @ratingOptions = [["1 Terry", 1], ["2 Terry's", 2], ["3 Terry's", 3], ["4 Terry's", 4], ["5 Terry's", 5]]
     @review = Review.find(params["id"])
   end
 
@@ -20,7 +20,7 @@ class ReviewsController < ApplicationController
     if @review.save
       redirect_to reviews_path
     else
-      @ratingOptions = [["1 Star", 1], ["2 Stars", 2], ["3 Stars", 3], ["4 Stars", 4], ["5 Stars", 5]]
+      @ratingOptions = [["1 Terry's", 1], ["2 Terry", 2], ["3 Terry's", 3], ["4 Terry's", 4], ["5 Terry's", 5]]
       flash.now[:sad] = @review.errors.full_messages.join(", ")
       render :edit
     end

@@ -5,16 +5,6 @@ const MyReviewTile = props => {
   let deleteButtonId = `deleteButton${props.id}`;
   let editButton;
   let editButtonId = `editButton${props.id}`;
-  deleteButton = (
-    <button id={deleteButtonId} onClick={props.handleDeleteReview}>
-      Delete
-    </button>
-  );
-  editButton = (
-    <button id={editButtonId} onClick={props.handleEditReview}>
-      Edit
-    </button>
-  );
 
   return (
     <div className="reviewSituation">
@@ -29,8 +19,12 @@ const MyReviewTile = props => {
           {props.rating}
         </div>
         <div className="review-index-buttons">
-          {editButton}
-          {deleteButton}
+          <button id={editButtonId} onClick={props.handleEditReview}>
+            Edit
+          </button>
+          <button id={deleteButtonId} onClick={props.handleDeleteReview}>
+            Delete
+          </button>
         </div>
       </li>
     </div>
