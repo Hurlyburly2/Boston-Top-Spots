@@ -3,24 +3,8 @@ import React from "react";
 const MyReviewTile = props => {
   let deleteButton;
   let deleteButtonId = `deleteButton${props.id}`;
-<<<<<<< HEAD
   let editButton;
   let editButtonId = `editButton${props.id}`;
-=======
->>>>>>> master
-  deleteButton = (
-    <button id={deleteButtonId} onClick={props.handleDeleteReview}>
-      Delete
-    </button>
-  );
-<<<<<<< HEAD
-  editButton = (
-    <button id={editButtonId} onClick={props.handleEditReview}>
-      Edit
-    </button>
-  );
-=======
->>>>>>> master
 
   return (
     <div className="reviewSituation">
@@ -35,12 +19,12 @@ const MyReviewTile = props => {
           {props.rating}
         </div>
         <div className="review-index-buttons">
-<<<<<<< HEAD
-          {editButton}
-=======
-          <button id="edit">Edit</button>
->>>>>>> master
-          {deleteButton}
+          <button id={editButtonId} onClick={props.handleEditReview}>
+            Edit
+          </button>
+          <button id={deleteButtonId} onClick={props.handleDeleteReview}>
+            Delete
+          </button>
         </div>
       </li>
     </div>

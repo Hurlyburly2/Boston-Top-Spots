@@ -10,6 +10,13 @@ class ReviewIndexContainer extends Component {
       reviews: []
     };
     this.handleDeleteReview = this.handleDeleteReview.bind(this);
+<<<<<<< HEAD
+=======
+    this.handleEditReview = this.handleEditReview.bind(this);
+  }
+  handleEditReview(review_id) {
+    return (window.location.href = `/reviews/${review_id}/edit`);
+>>>>>>> 7a34ceacbaac832a228f7143b4de61f36f587918
   }
 
   handleDeleteReview(review_id) {
@@ -71,6 +78,12 @@ class ReviewIndexContainer extends Component {
       let handleDeleteReview = () => {
         this.handleDeleteReview(review.id);
       };
+<<<<<<< HEAD
+=======
+      let handleEditReview = () => {
+        this.handleEditReview(review.id);
+      };
+>>>>>>> 7a34ceacbaac832a228f7143b4de61f36f587918
       return (
         <MyReviewTile
           key={review.id}
@@ -80,6 +93,10 @@ class ReviewIndexContainer extends Component {
           body={review.body}
           rating={review.rating}
           handleDeleteReview={handleDeleteReview}
+<<<<<<< HEAD
+=======
+          handleEditReview={handleEditReview}
+>>>>>>> 7a34ceacbaac832a228f7143b4de61f36f587918
         />
       );
     });

@@ -16,7 +16,48 @@ class AttractionsShowContainer extends Component {
     this.addNewReview = this.addNewReview.bind(this)
     this.handleDeleteAttraction = this.handleDeleteAttraction.bind(this)
     this.handleDeleteReview = this.handleDeleteReview.bind(this)
+    this.handleVote = this.handleVote.bind(this)
+  }
 
+  handleVote(event) {
+    event.preventDefault()
+    let vote = event.target.className
+    let formPayload = {};
+    if (vote == "upvote") {
+      formPayload["value"] = 1
+    } else {
+      formPayload["value"] = -1
+    }
+    formPayload["review_id"] = event.target.id
+    formPayload["user_id"] = this.state.currentUser.id
+
+    fetch(`/api/v1/votes`, {
+      credentials: 'same-origin',
+      method: 'POST',
+      body: JSON.stringify(formPayload),
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      }
+    })
+    .then(response => {
+      if (response.ok) {
+        return response;
+      } else {
+        let errorMessage = `${response.status} (${response.statusText})`,
+        error = new Error(errorMessage);
+        throw(error);
+      }
+    })
+    .then(response => response.json())
+    .then(body => {
+      this.setState({
+        attraction: body.attractions,
+        reviews: body.attractions.reviews,
+        currentUser: body.user
+      });
+    })
+    .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
 
   handleDeleteReview(review_id) {
@@ -97,7 +138,11 @@ class AttractionsShowContainer extends Component {
       })
       .then(response => response.json())
       .then(body => {
-        this.setState({reviews: this.state.reviews.concat(body.review) });
+        this.setState({
+          attractions: body.attractions,
+          reviews: body.attractions.reviews,
+          currentUser: body.user
+        });
       })
       .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
@@ -142,6 +187,7 @@ class AttractionsShowContainer extends Component {
           reviews={this.state.reviews}
           currentUser={this.state.currentUser}
           handleDeleteReview={this.handleDeleteReview}
+          handleVote={this.handleVote}
         />
         <ReviewForm
           addNewReview={this.addNewReview}
