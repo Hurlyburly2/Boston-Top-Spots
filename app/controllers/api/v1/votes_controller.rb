@@ -6,13 +6,11 @@ class Api::V1::VotesController < ApplicationController
       review = Review.find(vote.review.id)
       attractions = AttractionShowSerializer.new(review.attraction)
       user = current_user
-
       render json: {
         attractions: attractions,
         user: user
       }
     else
-
       render json: { error: vote.errors.full_messages },
       status: :unprocessable_entity
     end
