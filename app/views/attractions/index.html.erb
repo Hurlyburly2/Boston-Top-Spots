@@ -8,8 +8,8 @@
 
   <div class="spanImage">
     <div class="imageText">
-      <h1>Boston Top Spots</h1>
-      <h4>Find Local Attractions, Book Tours, Experience Boston</h4>
+      <h3>Do Boston like<br /> a local</h3>
+      <h4>COOL THINGS TO DO IN THE CITY OF NEIGHBORHOODS</h4>
     </div>
     <%= image_tag "BostonImage.jpg", :class => "imageToSpan" %>
   </div>
@@ -23,7 +23,7 @@
         <div class="attraction-tile-image" >
         <img src="<%= attraction.image_url %>" />
         <div class="attraction-text">
-        <%= link_to attraction.name, attraction_path(attraction) %>
+          <%= link_to attraction.name, attraction_path(attraction) %>
         </div>
       </div>
       </li>
