@@ -25,6 +25,7 @@ class ReviewsContainer extends Component {
 
     return (
       <div>
+        <h3>Attraction Reviews:</h3>
         <ul>{reviews}</ul>
       </div>
     )

@@ -126,7 +126,7 @@ class AttractionsShowContainer extends Component {
   }
   render() {
     return (
-      <div>
+      <div className="attraction-form">
         <AttractionTile
           id={this.state.attraction.id}
           name={this.state.attraction.name}
@@ -137,14 +137,15 @@ class AttractionsShowContainer extends Component {
           description={this.state.attraction.description}
           currentUser={this.state.currentUser}
           handleDeleteAttraction={this.handleDeleteAttraction}
+          image={this.state.attraction.image_url}
+        />
+        <ReviewForm
+        addNewReview={this.addNewReview}
         />
         <ReviewsContainer
           reviews={this.state.reviews}
           currentUser={this.state.currentUser}
           handleDeleteReview={this.handleDeleteReview}
-        />
-        <ReviewForm
-          addNewReview={this.addNewReview}
         />
       </div>
     );
