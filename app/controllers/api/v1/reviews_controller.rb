@@ -21,7 +21,6 @@ class Api::V1::ReviewsController < ApplicationController
     else
       render json: { error: review.errors.full_messages },
       status: :unprocessable_entity
-      #
     end
   end
 

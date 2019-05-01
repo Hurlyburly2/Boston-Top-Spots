@@ -22,6 +22,7 @@ class ReviewSerializer < ActiveModel::Serializer
       score += vote.value
     end
     return score
+  end 
 
   def location
     location = {}

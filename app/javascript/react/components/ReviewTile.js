@@ -1,6 +1,5 @@
 import React from "react";
 
-
 const ReviewTile = (props) => {
   let deleteButton
   let deleteButtonId = `deleteButton${props.id}`
@@ -14,17 +13,6 @@ const ReviewTile = (props) => {
   if (props.currentUser !== null) {
     upvoteButton = <button className="upvote" id={upvoteButtonId} onClick={props.handleVote}>Upvote!</button>
     downvoteButton = <button className="downvote" id={downvoteButtonId} onClick={props.handleVote}>Downvote!</button>
-
-const ReviewTile = props => {
-  let deleteButton;
-  let buttonId = `deleteButton${props.id}`;
-  if (props.currentUser !== null && props.currentUser.role === "admin") {
-    deleteButton = (
-      <button id={buttonId} onClick={props.handleDeleteReview}>
-        Delete Review
-      </button>
-    );
-
   }
   return (
     <div>
