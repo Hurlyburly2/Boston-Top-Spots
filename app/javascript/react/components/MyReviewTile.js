@@ -1,4 +1,6 @@
 import React from "react";
+import doggoGrey from "./doggoGrey.png";
+import doggoBlack from "./doggoBlack.png";
 
 const MyReviewTile = props => {
   let deleteButton;
@@ -6,6 +8,58 @@ const MyReviewTile = props => {
   let editButton;
   let editButtonId = `editButton${props.id}`;
 
+  let rating;
+  if (props.rating === 1) {
+    rating = (
+      <div className="doggo">
+        <img src={doggoBlack} alt="doggoBlack" />
+        <img src={doggoBlack} alt="doggoGrey" />
+        <img src={doggoGrey} alt="doggoGrey" />
+        <img src={doggoGrey} alt="doggoGrey" />
+        <img src={doggoGrey} alt="doggoGrey" />
+      </div>
+    );
+  } else if (props.rating === 2) {
+    rating = (
+      <div className="doggo">
+        <img src={doggoBlack} alt="doggoBlack" />
+        <img src={doggoBlack} alt="doggoBlack" />
+        <img src={doggoGrey} alt="doggoGrey" />
+        <img src={doggoGrey} alt="doggoGrey" />
+        <img src={doggoGrey} alt="doggoGrey" />
+      </div>
+    );
+  } else if (props.rating === 3) {
+    rating = (
+      <div className="doggo">
+        <img src={doggoBlack} alt="doggoBlack" />
+        <img src={doggoBlack} alt="doggoBlack" />
+        <img src={doggoBlack} alt="doggoBlack" />
+        <img src={doggoGrey} alt="doggoGrey" />
+        <img src={doggoGrey} alt="doggoGrey" />
+      </div>
+    );
+  } else if (props.rating === 4) {
+    rating = (
+      <div className="doggo">
+        <img src={doggoBlack} alt="doggoBlack" />
+        <img src={doggoBlack} alt="doggoBlack" />
+        <img src={doggoBlack} alt="doggoBlack" />
+        <img src={doggoBlack} alt="doggoBlack" />
+        <img src={doggoGrey} alt="doggoGrey" />
+      </div>
+    );
+  } else if (props.rating === 5) {
+    rating = (
+      <div className="doggo">
+        <img src={doggoBlack} alt="doggoBlack" />
+        <img src={doggoBlack} alt="doggoBlack" />
+        <img src={doggoBlack} alt="doggoBlack" />
+        <img src={doggoBlack} alt="doggoBlack" />
+        <img src={doggoBlack} alt="doggoBlack" />
+      </div>
+    );
+  }
   return (
     <div className="reviewSituation">
       <li className="review-tile-li">
@@ -16,7 +70,7 @@ const MyReviewTile = props => {
         <div className="review-text">
           {props.body}
           <br />
-          {props.rating}
+          {rating}
         </div>
         <div className="review-index-buttons">
           <button id={editButtonId} onClick={props.handleEditReview}>
@@ -30,5 +84,4 @@ const MyReviewTile = props => {
     </div>
   );
 };
-
 export default MyReviewTile;

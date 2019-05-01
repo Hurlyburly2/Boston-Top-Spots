@@ -8,16 +8,6 @@ class ReviewForm extends Component {
     this.state = {
       body: "",
       rating: "",
-<<<<<<< HEAD
-      ratingOptions: [
-        "1 Terry",
-        "2 Terry's",
-        "3 Terry's",
-        "4 Terry's",
-        "5 Terry's"
-      ],
-=======
->>>>>>> 7a34ceacbaac832a228f7143b4de61f36f587918
       errors: {}
     };
     this.handleChange = this.handleChange.bind(this);
@@ -72,10 +62,6 @@ class ReviewForm extends Component {
   }
 
   render() {
-<<<<<<< HEAD
-    let ratingIterator = 0;
-    let optionElements = this.state.ratingOptions.map(option => {
-=======
     const OPTIONS = [
       "1 Terry",
       "2 Terry's",
@@ -85,7 +71,6 @@ class ReviewForm extends Component {
     ];
     let ratingIterator = 0;
     let optionElements = OPTIONS.map(option => {
->>>>>>> 7a34ceacbaac832a228f7143b4de61f36f587918
       ratingIterator++;
       return (
         <option key={ratingIterator} value={ratingIterator}>
@@ -96,7 +81,6 @@ class ReviewForm extends Component {
 
     let errorDiv;
     let errorItems;
-
     if (Object.keys(this.state.errors).length > 0) {
       errorItems = Object.values(this.state.errors).map(error => {
         return <li key={error}>{error}</li>;
@@ -125,7 +109,6 @@ class ReviewForm extends Component {
           onChange={this.handleChange}
           onBlur={this.handleValidation}
         />
-
         <div className="button-group">
           <button className="button" onClick={this.handleClear}>
             Clear

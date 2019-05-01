@@ -4,7 +4,6 @@ import ReviewForm from "./ReviewForm";
 import ReviewsContainer from "./ReviewsContainer";
 import { Route, IndexRoute, Router, browserHistory } from "react-router";
 
-
 class AttractionsShowContainer extends Component {
   constructor(props) {
     super(props);
@@ -13,127 +12,127 @@ class AttractionsShowContainer extends Component {
       reviews: [],
       currentUser: null
     };
-    this.addNewReview = this.addNewReview.bind(this)
-    this.handleDeleteAttraction = this.handleDeleteAttraction.bind(this)
-    this.handleDeleteReview = this.handleDeleteReview.bind(this)
-    this.handleVote = this.handleVote.bind(this)
+    this.addNewReview = this.addNewReview.bind(this);
+    this.handleDeleteAttraction = this.handleDeleteAttraction.bind(this);
+    this.handleDeleteReview = this.handleDeleteReview.bind(this);
+    this.handleVote = this.handleVote.bind(this);
   }
 
   handleVote(event) {
-    event.preventDefault()
-    let vote = event.target.className
+    event.preventDefault();
+    let vote = event.target.className;
     let formPayload = {};
     if (vote == "upvote") {
-      formPayload["value"] = 1
+      formPayload["value"] = 1;
     } else {
-      formPayload["value"] = -1
+      formPayload["value"] = -1;
     }
-    formPayload["review_id"] = event.target.id
-    formPayload["user_id"] = this.state.currentUser.id
+    formPayload["review_id"] = event.target.id;
+    formPayload["user_id"] = this.state.currentUser.id;
 
     fetch(`/api/v1/votes`, {
-      credentials: 'same-origin',
-      method: 'POST',
+      credentials: "same-origin",
+      method: "POST",
       body: JSON.stringify(formPayload),
       headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
+        Accept: "application/json",
+        "Content-Type": "application/json"
       }
     })
-    .then(response => {
-      if (response.ok) {
-        return response;
-      } else {
-        let errorMessage = `${response.status} (${response.statusText})`,
-        error = new Error(errorMessage);
-        throw(error);
-      }
-    })
-    .then(response => response.json())
-    .then(body => {
-      this.setState({
-        attraction: body.attractions,
-        reviews: body.attractions.reviews,
-        currentUser: body.user
-      });
-    })
-    .catch(error => console.error(`Error in fetch: ${error.message}`));
-  }
-
-  handleDeleteReview(review_id) {
-    fetch(`/api/v1/reviews/${review_id}`, {
-      credentials: 'same-origin',
-      method: 'DELETE',
-      body: JSON.stringify(review_id),
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      }
-    })
-    .then(response => {
+      .then(response => {
         if (response.ok) {
           return response;
         } else {
           let errorMessage = `${response.status} (${response.statusText})`,
-              error = new Error(errorMessage);
-          throw(error);
+            error = new Error(errorMessage);
+          throw error;
         }
       })
       .then(response => response.json())
       .then(body => {
-        this.setState({ reviews: body.reviews })
+        this.setState({
+          attraction: body.attractions,
+          reviews: body.attractions.reviews,
+          currentUser: body.user
+        });
+      })
+      .catch(error => console.error(`Error in fetch: ${error.message}`));
+  }
+
+  handleDeleteReview(review_id) {
+    fetch(`/api/v1/reviews/${review_id}`, {
+      credentials: "same-origin",
+      method: "DELETE",
+      body: JSON.stringify(review_id),
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      }
+    })
+      .then(response => {
+        if (response.ok) {
+          return response;
+        } else {
+          let errorMessage = `${response.status} (${response.statusText})`,
+            error = new Error(errorMessage);
+          throw error;
+        }
+      })
+      .then(response => response.json())
+      .then(body => {
+        this.setState({ reviews: body.reviews });
       })
       .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
 
   handleDeleteAttraction(event) {
-    event.preventDefault()
+    event.preventDefault();
     let attractionId = this.props.params.id;
     fetch(`/api/v1/attractions/${attractionId}`, {
-      credentials: 'same-origin',
-      method: 'DELETE',
+      credentials: "same-origin",
+      method: "DELETE",
       body: JSON.stringify(attractionId),
       headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
+        Accept: "application/json",
+        "Content-Type": "application/json"
       }
     })
-    .then(response => {
+      .then(response => {
         if (response.ok) {
           return response;
         } else {
           let errorMessage = `${response.status} (${response.statusText})`,
-              error = new Error(errorMessage);
-          throw(error);
+            error = new Error(errorMessage);
+          throw error;
         }
       })
       .then(response => response.json())
       .then(body => {
-        return window.location.href = "/attractions"
+        return (window.location.href = "/attractions");
       })
       .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
 
   addNewReview(formPayload) {
-    formPayload["attraction_id"] = this.state.attraction.id
-    formPayload["user_id"] = this.state.currentUser.id
+    formPayload["attraction_id"] = this.state.attraction.id;
+    formPayload["user_id"] = this.state.currentUser.id;
 
     fetch(`/api/v1/reviews`, {
-      credentials: 'same-origin',
-      method: 'POST',
+      credentials: "same-origin",
+      method: "POST",
       body: JSON.stringify(formPayload),
       headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
+        Accept: "application/json",
+        "Content-Type": "application/json"
       }
     })
-    .then(response => {
+      .then(response => {
         if (response.ok) {
           return response;
         } else {
           let errorMessage = `${response.status} (${response.statusText})`,
-              error = new Error(errorMessage);
-          throw(error);
+            error = new Error(errorMessage);
+          throw error;
         }
       })
       .then(response => response.json())
@@ -169,6 +168,7 @@ class AttractionsShowContainer extends Component {
       })
       .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
+
   render() {
     return (
       <div>
@@ -189,9 +189,7 @@ class AttractionsShowContainer extends Component {
           handleDeleteReview={this.handleDeleteReview}
           handleVote={this.handleVote}
         />
-        <ReviewForm
-          addNewReview={this.addNewReview}
-        />
+        <ReviewForm addNewReview={this.addNewReview} />
       </div>
     );
   }
