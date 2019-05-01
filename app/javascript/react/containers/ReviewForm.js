@@ -9,12 +9,11 @@ class ReviewForm extends Component {
       body: "",
       rating: "",
       ratingOptions: [
-        "0 Stars",
-        "1 Star",
-        "2 Stars",
-        "3 Stars",
-        "4 Stars",
-        "5 Stars"
+        "1 Terry",
+        "2 Terry's",
+        "3 Terry's",
+        "4 Terry's",
+        "5 Terry's"
       ],
       errors: {}
     };
@@ -70,7 +69,7 @@ class ReviewForm extends Component {
   }
 
   render() {
-    let ratingIterator = -1;
+    let ratingIterator = 0;
     let optionElements = this.state.ratingOptions.map(option => {
       ratingIterator++;
       return (

@@ -1,5 +1,13 @@
 class Api::V1::ReviewsController < ApplicationController
 
+  def index
+    reviews = current_user.reviews
+    serialized_reviews = reviews.map do |review|
+      ReviewSerializer.new(review)
+    end
+    render json: {reviews: serialized_reviews}
+  end
+
   def create
     review = Review.new(review_params)
 
@@ -12,10 +20,21 @@ class Api::V1::ReviewsController < ApplicationController
   end
 
   def destroy
-    delete_review = Review.find(params["id"])
-    attraction = delete_review.attraction
-    delete_review.delete
-    render json: {reviews: attraction.reviews}
+    if params["to_get"] == "review_index"
+      delete_review = Review.find(params["id"])
+      attraction = delete_review.attraction
+      delete_review.delete
+      reviews = current_user.reviews
+      serialized_reviews = reviews.map do |review|
+        ReviewSerializer.new(review)
+      end
+      render json: {reviews: serialized_reviews}
+    else
+      delete_review = Review.find(params["id"])
+      attraction = delete_review.attraction
+      delete_review.delete
+      render json: {reviews: attraction.reviews}
+    end
   end
 
   private
