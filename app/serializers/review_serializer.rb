@@ -1,5 +1,5 @@
 class ReviewSerializer < ActiveModel::Serializer
-  attributes :id, :rating, :body, :reviewer, :votes, :score
+  attributes :id, :rating, :body, :reviewer, :location, :votes, :score
 
   belongs_to :attraction
   belongs_to :user
@@ -22,5 +22,11 @@ class ReviewSerializer < ActiveModel::Serializer
       score += vote.value
     end
     return score
+
+  def location
+    location = {}
+    location["name"] = object.attraction.name
+    location["image_url"] = object.attraction.image_url
+    return location
   end
 end

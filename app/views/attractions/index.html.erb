@@ -1,10 +1,16 @@
 <div>
   <div class="banner-image">
-  <%= image_tag "BostonTopSpots.jpg" %>
+    <%= image_tag "BostonTopSpots.jpg" %>
+    <div class="bottom-center">
+      <h2>Find Local Attractions, Book Tours,</h2>
+      <h2>Experience Boston</h2>
+      <span class="header-subtitle">
+        Find amazing things to do in Boston today!
+      </span>
+    </div>
   </div>
-  
+
   <div class="attraction-link">
-  <%= link_to "Add a New Attraction!", new_attraction_path %>
   </div>
 
   <ul>
@@ -12,7 +18,7 @@
     <% @attractions.each do |attraction| %>
       <li class="attraction-tile-li">
         <div class="attraction-tile-image" >
-        <%= image_tag "Ducklings-Filler-Image.jpg" %>
+        <img src="<%= attraction.image_url %>" />
         <div class="attraction-text">
         <%= link_to attraction.name, attraction_path(attraction) %>
         </div>
