@@ -3,11 +3,12 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :attractions, only: [:index, :new, :create, :show]
+  resources :reviews, only: [:index, :destroy]
 
   namespace :api do
     namespace :v1 do
-      resources :attractions, only: [:show, :destroy]
-      resources :reviews, only: [:create, :destroy]
+      resources :attractions, only: [:show, :destroy] 
+      resources :reviews, only: [:index, :create, :destroy]
       resources :votes, only: [:create]
     end
   end
