@@ -4,6 +4,7 @@ class ReviewsController < ApplicationController
   end
 
   def destroy
+<<<<<<< HEAD
 
   end
 
@@ -29,5 +30,7 @@ class ReviewsController < ApplicationController
 
   def review_params
     params.require(:review).permit(:rating, :body)
+=======
+>>>>>>> f10b4f8bab97c583e0882d38a72d0e23a091f14c
   end
 end
