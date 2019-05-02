@@ -13,11 +13,7 @@ const ReviewTile = props => {
     doggoGrey = <img src="/doggoGrey.png" alt="doggoGrey" key={i}/>
     doggoArray.push(doggoGrey)
   }
-  let rating = (
-    <div className="doggo">
-      {doggoArray}
-    </div>
-  )
+  let rating = <div className="doggo">{doggoArray}</div>;
 
   let deleteButton;
   let deleteButtonId = `deleteButton${props.id}`;

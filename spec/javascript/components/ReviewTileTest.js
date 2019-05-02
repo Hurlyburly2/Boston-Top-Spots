@@ -6,19 +6,15 @@ describe("ReviewTile", () => {
   beforeEach(() => {
     wrapper = mount(
       <ReviewTile
-        rating="5 Terry's"
+        rating={5}
         body="A great place in Boston"
         currentUser={null}
       />
     );
   });
 
-  it("should render an h3 tag", () => {
-    expect(wrapper.find("h3")).toBePresent();
-  });
-
-  it("should render an h3 tag with a certain text property value", () => {
-    expect(wrapper.find("h3").text()).toBe("Rating: 5 Terry's");
+  it("should render an li tag", () => {
+    expect(wrapper.find("li")).toBePresent();
   });
 
   it("should render a p tag with a certain text property value", () => {
@@ -27,7 +23,7 @@ describe("ReviewTile", () => {
 
   it("should render the ReviewTile component with specific props", () => {
     expect(wrapper.props()).toEqual({
-      rating: "5 Terry's",
+      rating: 5,
       body: "A great place in Boston",
       currentUser: null
     });

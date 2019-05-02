@@ -6,7 +6,6 @@ class ReviewsContainer extends Component {
     super(props);
     this.state = {};
   }
-
   render() {
     let reviews = this.props.reviews.map(review => {
       let handleClick = () => {

@@ -29,7 +29,6 @@ class AttractionsShowContainer extends Component {
     }
     formPayload["review_id"] = event.target.id;
     formPayload["user_id"] = this.state.currentUser.id;
-
     fetch(`/api/v1/votes`, {
       credentials: "same-origin",
       method: "POST",
