@@ -1,6 +1,4 @@
 import React from "react";
-// import doggoGrey from "../../../../public/doggoGrey.png";
-// import doggoBlack from "../../../../public/doggoBlack.png";
 
 const ReviewTile = props => {
   let rating;

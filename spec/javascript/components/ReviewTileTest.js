@@ -1,9 +1,6 @@
 import ReviewTile from "../../../app/javascript/react/components/ReviewTile";
 
-// import doggoGrey from "../../../public/doggoGrey.png";
-// import doggoBlack from "../../../public/doggoBlack.png";
-
-fdescribe("ReviewTile", () => {
+describe("ReviewTile", () => {
   let rating, body, wrapper;
 
   beforeEach(() => {

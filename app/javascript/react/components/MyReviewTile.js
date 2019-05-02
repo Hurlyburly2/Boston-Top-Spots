@@ -1,6 +1,4 @@
 import React from "react";
-// import doggoGrey from "../../../../public/doggoGrey.png";
-// import doggoBlack from "../../../../public/doggoBlack.png";
 
 const MyReviewTile = props => {
   let deleteButton;
