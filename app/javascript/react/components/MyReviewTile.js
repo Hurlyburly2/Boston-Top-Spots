@@ -14,7 +14,9 @@ const MyReviewTile = props => {
       <li className="review-tile-li">
         <div className="review-tile-image">
           <img src={props.attraction_image} />
-          {props.attraction_name}
+          <div className="review-index-tile-title">
+            {props.attraction_name}
+          </div>
         </div>
         <div className="review-content">
           <div id="review-text">
