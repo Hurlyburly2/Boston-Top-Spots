@@ -8,6 +8,7 @@ class ReviewsContainer extends Component {
   }
 
   render() {
+    // debugger
     let reviews = this.props.reviews.map(review => {
       let handleClick = () => {
         this.props.handleDeleteReview(review.id);
@@ -19,6 +20,7 @@ class ReviewsContainer extends Component {
           body={review.body}
           rating={review.rating}
           username={review.reviewer.username}
+          profile_photo={review.reviewer.profile_photo.url}
           score={review.score}
           handleDeleteReview={handleClick}
           currentUser={this.props.currentUser}
