@@ -6,58 +6,22 @@ const MyReviewTile = props => {
   let editButton;
   let editButtonId = `editButton${props.id}`;
 
-  let rating;
-  if (props.rating === 1) {
-    rating = (
-      <div className="doggo">
-        <img src="/doggoBlack.png" alt="doggoBlack" />
-        <img src="/doggoGrey.png" alt="doggoGrey" />
-        <img src="/doggoGrey.png" alt="doggoGrey" />
-        <img src="/doggoGrey.png" alt="doggoGrey" />
-        <img src="/doggoGrey.png" alt="doggoGrey" />
-      </div>
-    );
-  } else if (props.rating === 2) {
-    rating = (
-      <div className="doggo">
-        <img src="/doggoBlack.png" alt="doggoBlack" />
-        <img src="/doggoBlack.png" alt="doggoBlack" />
-        <img src="/doggoGrey.png" alt="doggoGrey" />
-        <img src="/doggoGrey.png" alt="doggoGrey" />
-        <img src="/doggoGrey.png" alt="doggoGrey" />
-      </div>
-    );
-  } else if (props.rating === 3) {
-    rating = (
-      <div className="doggo">
-        <img src="/doggoBlack.png" alt="doggoBlack" />
-        <img src="/doggoBlack.png" alt="doggoBlack" />
-        <img src="/doggoBlack.png" alt="doggoBlack" />
-        <img src="/doggoGrey.png" alt="doggoGrey" />
-        <img src="/doggoGrey.png" alt="doggoGrey" />
-      </div>
-    );
-  } else if (props.rating === 4) {
-    rating = (
-      <div className="doggo">
-        <img src="/doggoBlack.png" alt="doggoBlack" />
-        <img src="/doggoBlack.png" alt="doggoBlack" />
-        <img src="/doggoBlack.png" alt="doggoBlack" />
-        <img src="/doggoBlack.png" alt="doggoBlack" />
-        <img src="/doggoGrey.png" alt="doggoGrey" />
-      </div>
-    );
-  } else if (props.rating === 5) {
-    rating = (
-      <div className="doggo">
-        <img src="/doggoBlack.png" alt="doggoBlack" />
-        <img src="/doggoBlack.png" alt="doggoBlack" />
-        <img src="/doggoBlack.png" alt="doggoBlack" />
-        <img src="/doggoBlack.png" alt="doggoBlack" />
-        <img src="/doggoBlack.png" alt="doggoBlack" />
-      </div>
-    );
+  let doggoArray = []
+  let doggoBlack = <img src="/doggoBlack.png" alt="doggoBlack" />
+  let doggoGrey = <img src="/doggoGrey.png" alt="doggoGrey" />
+
+  for (var i = 0; i < props.rating; i++) {
+    doggoArray.push(doggoBlack)
   }
+  for (var i = props.rating; i < 5; i++) {
+    doggoArray.push(doggoGrey)
+  }
+  let rating = (
+    <div className="doggo">
+      {doggoArray}
+    </div>
+  )
+
   return (
     <div className="reviewSituation">
       <li className="review-tile-li">
