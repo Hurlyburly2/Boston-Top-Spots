@@ -33,6 +33,7 @@ class AttractionsController < ApplicationController
       :city,
       :state,
       :zip,
+      :image_url,
       :user_id)
   end
 end
