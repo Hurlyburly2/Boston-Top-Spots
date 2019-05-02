@@ -41,7 +41,7 @@ ul {
 
 .imageText {
   position: absolute;
-  /* top: 50px; */
+  top: 90px;
   width: 100%;
   margin-left: 15%;
 }
@@ -49,17 +49,18 @@ ul {
 .imageText h3 {
   color: #eee5e5;
   font-size: 40px;
-  font-weight: 500;
   font-family: paralucent, sans-serif;
   font-weight: 500;
 }
 
 .imageText h4 {
+  margin-top: 20px;
   color: #eee5e5;
   font-size: 20px;
   font-family: paralucent, sans-serif;
   font-weight: 300;
   letter-spacing: 2px;
+  color: white;
 }
 
 .title-area a {
@@ -80,9 +81,6 @@ ul {
   height: 300px;
 }
 
-
-
-
 .attraction-tile-li a {
   color: white;
 }
@@ -98,7 +96,6 @@ ul {
   vertical-align: middle;
   display: inline-block;
   background-color: #0b1019;
-  /* padding: 5px 5px 5px 5px; */
   margin: 20px;
   text-align: center;
   border-radius: 0 0 20px 20px;
@@ -119,8 +116,6 @@ ul {
   padding-bottom: 20px;
   width: 250px;
 }
-
-
 
 .attraction-link {
   height: 25px;
@@ -162,9 +157,6 @@ ul {
 .bottom-center {
   text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #fff,
     0 0 50px #fff, 0 0 60px #fff, 0 0 70px #fff;
-    /* position: absolute;
-  top: 8px;
-  left: 16px; */
 }
 
 .dog-image {
@@ -292,7 +284,6 @@ ul {
 
 .reviewSituation {
   height: 100%;
-  
 }
 
 .review-tile-image {
@@ -301,7 +292,7 @@ ul {
   border-radius: 0 0 25px 25px;
   width: 250px;
   float: left;
-  margin-top: 15px;
+  /* margin-top: 15px; */
   font-family: paralucent, sans-serif;
   font-size: 20px;
   font-variant: small-caps;
@@ -329,7 +320,6 @@ ul {
 
 .upvote, .downvote, .score {
   display: inline-block;
-  /* float: right; */
   vertical-align: middle;
 }
 
@@ -347,10 +337,10 @@ ul {
 
 .comment-username {
   font-family: paralucent, sans-serif;
-  font-weight: 300;
+  font-weight: 400;
   color: #ee274f;
   font-size: 25px;
-  margin: 15px 0 10px 0;
+  margin: 15px 0 30px 0;
 }
 
 .review-tile-indent {
@@ -360,6 +350,36 @@ ul {
   font-size: 20px;
 }
 
-/* .terries {
-  margin-top: 5px;
-} */
+#profilePhoto_two {
+  border: 3px solid #0b1019;
+  border-radius: 0 0 25px 25px;
+  float: left;
+  margin-bottom: 15px;
+  margin-right: 15px;
+}
+
+.callout-alert li {
+  color: #ee274f;
+  font-family: paralucent, sans-serif;
+  weight: 500;
+  size: 15px;
+}
+
+.review-delete-button, .upvote, .downvote {
+  font-family: paralucent, sans-serif !important;
+  font-weight: 300 !important;
+  font-size: 17px;
+}
+
+/*MY REView CONTAINER*/
+
+#review-text {
+  color: #0b1019;
+  font-size: 20px;
+  margin: 0 0 15px 0;
+  margin-top: 20px;
+}
+
+#review-index-page-header {
+  margin-bottom: 20px;
+}

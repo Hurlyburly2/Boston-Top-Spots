@@ -23,30 +23,35 @@ const MyReviewTile = props => {
   )
 
   return (
-    <div className="reviewSituation">
-      <li className="review-tile-li">
-        <div className="review-tile-image">
-          <img src={props.attraction_image} />
-          <div className="review-index-tile-title">
-            {props.attraction_name}
+    <div className = "spaceoutreviews">
+      <div className="reviewSituation">
+        <li className="review-tile-li">
+          <div className="review-tile-image">
+            <img src={props.attraction_image} id="review-index-image"/>
+            <div className="review-index-tile-title">
+              {props.attraction_name}
+            </div>
           </div>
-        </div>
-        <div className="review-content">
-          <div id="review-text">
-            {props.body}
-            <br />
-            {rating}
+          <div className="review-content">
+          {rating}
+            <div id="review-text">
+              {props.body}
+              <br />
+            </div>
+            <div className="review-index-buttons">
+              <button id={editButtonId} onClick={props.handleEditReview}>
+                Edit
+              </button>
+              <button id={deleteButtonId} onClick={props.handleDeleteReview}>
+                Delete
+              </button>
+            </div>
           </div>
-          <div className="review-index-buttons">
-            <button id={editButtonId} onClick={props.handleEditReview}>
-              Edit
-            </button>
-            <button id={deleteButtonId} onClick={props.handleDeleteReview}>
-              Delete
-            </button>
-          </div>
-        </div>
-      </li>
+        </li>
+      </div>
+      <br />
+      <br />
+      <br />
     </div>
   );
 };

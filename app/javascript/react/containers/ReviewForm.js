@@ -29,7 +29,7 @@ class ReviewForm extends Component {
       this.handleClear(event);
     } else {
       let newError = {
-        blank: `You cannot submit a blank form & must resolve all errors!`
+        blank: `You cannot submit a blank form or must be logged in!`
       };
       this.setState({ errors: Object.assign({}, this.state.errors, newError) });
     }

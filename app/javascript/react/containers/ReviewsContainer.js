@@ -8,9 +8,9 @@ class ReviewsContainer extends Component {
   }
 
   render() {
-    // debugger
     let reviews = this.props.reviews.map(review => {
       let handleClick = () => {
+        debugger
         this.props.handleDeleteReview(review.id);
       };
       return (
