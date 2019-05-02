@@ -91,7 +91,6 @@ class ReviewIndexContainer extends Component {
         />
       );
     });
-
     return (
       <div>
         <div className="review-index-title">

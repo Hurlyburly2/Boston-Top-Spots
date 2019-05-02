@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      resources :attractions, only: [:show, :destroy] 
+      resources :attractions, only: [:show, :destroy]
       resources :reviews, only: [:index, :create, :destroy]
       resources :votes, only: [:create]
     end

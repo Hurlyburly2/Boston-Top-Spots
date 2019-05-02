@@ -5,8 +5,7 @@ import ReviewsContainer from "../../../app/javascript/react/containers/ReviewsCo
 import ReviewTile from "../../../app/javascript/react/components/ReviewTile";
 
 import fetchMock from "fetch-mock";
-import '../testHelper.js'
-
+import "../testHelper.js";
 
 describe("AttractionsShowContainer", () => {
   let wrapper, data;
@@ -28,7 +27,11 @@ describe("AttractionsShowContainer", () => {
             body: "This is a review",
             reviewer: {
               id: 1,
-              username: "BorisMargarian"
+              username: "BorisMargarian",
+              profile_photo: {
+                url:
+                  "https://s3.amazonaws.com/boston-top-spots-development/default/profile.png"
+              }
             }
           }
         ]
@@ -39,21 +42,25 @@ describe("AttractionsShowContainer", () => {
         created_at: "2019-04-23T18:00:06.653Z",
         updated_at: "2019-04-24T18:48:58.446Z",
         username: "HeatherGarcia",
-        role: "admin"
+        role: "admin",
+        profile_photo: {
+          url:
+            "https://s3.amazonaws.com/boston-top-spots-development/default/profile.png"
+        }
       }
     };
-    fetchMock.get('/api/v1/attractions/6', {
+    fetchMock.get("/api/v1/attractions/6", {
       status: 200,
       body: data
     });
-    wrapper = mount(<AttractionsShowContainer params={{ "id": 6 }} />);
+    wrapper = mount(<AttractionsShowContainer params={{ id: 6 }} />);
   });
 
-  it("should render a ReviewsContainer component", (done) => {
+  it("should render a ReviewsContainer component", done => {
     setTimeout(() => {
       expect(wrapper.find(ReviewsContainer)).toBePresent();
-      done()
-    }, 0)
+      done();
+    }, 0);
   });
 
   it("should render a AttractionTile component", done => {
@@ -65,65 +72,80 @@ describe("AttractionsShowContainer", () => {
 
   it("should render the AttractionTile Component with specific props", done => {
     setTimeout(() => {
-      expect(wrapper.find(AttractionTile).props().id).toEqual(6)
-      expect(wrapper.find(AttractionTile).props().name).toEqual("Duck Tours")
-      expect(wrapper.find(AttractionTile).props().description).toEqual("A splashing good time")
-      expect(wrapper.find(AttractionTile).props().address).toEqual("123 Boston St.")
-      expect(wrapper.find(AttractionTile).props().city).toEqual("Boston")
-      expect(wrapper.find(AttractionTile).props().state).toEqual("MA")
-      expect(wrapper.find(AttractionTile).props().zip).toEqual("02137")
-      expect(wrapper.find(AttractionTile).props().currentUser).toEqual(data.user)
+      expect(wrapper.find(AttractionTile).props().id).toEqual(6);
+      expect(wrapper.find(AttractionTile).props().name).toEqual("Duck Tours");
+      expect(wrapper.find(AttractionTile).props().description).toEqual(
+        "A splashing good time"
+      );
+      expect(wrapper.find(AttractionTile).props().address).toEqual(
+        "123 Boston St."
+      );
+      expect(wrapper.find(AttractionTile).props().city).toEqual("Boston");
+      expect(wrapper.find(AttractionTile).props().state).toEqual("MA");
+      expect(wrapper.find(AttractionTile).props().zip).toEqual("02137");
+      expect(wrapper.find(AttractionTile).props().currentUser).toEqual(
+        data.user
+      );
       done();
     }, 0);
   });
 
   it("should render the ReviewsContainer with specific props", done => {
     setTimeout(() => {
-      expect(wrapper.find(ReviewsContainer).props().reviews).toEqual(data.attractions.reviews)
-      expect(wrapper.find(ReviewsContainer).props().currentUser).toEqual(data.user)
+      expect(wrapper.find(ReviewsContainer).props().reviews).toEqual(
+        data.attractions.reviews
+      );
+      expect(wrapper.find(ReviewsContainer).props().currentUser).toEqual(
+        data.user
+      );
       done();
     }, 0);
   });
 
-
-  it("should post a new review", (done) => {
+  it("should post a new review", done => {
     let params = {
       review: {
         rating: 5,
-        body: 'A splashing good time',
+        body: "A splashing good time",
         attraction_id: 3,
         user_id: 2
       }
-    }
+    };
 
-    fetchMock.post('/api/v1/reviews/create', {
+    fetchMock.post("/api/v1/reviews/create", {
       status: 201,
       body: params
     });
     setTimeout(() => {
-      let listItemCount = wrapper.find('li').length
-      wrapper.find('#submit-button').simulate('submit')
+      let listItemCount = wrapper.find("li").length;
+      wrapper.find("#submit-button").simulate("submit");
       setTimeout(() => {
-        expect(wrapper.find('li').length).toEqual(listItemCount + 1)
-        done()
-      }, 0)
-    }, 0)
+        expect(wrapper.find("li").length).toEqual(listItemCount + 1);
+        done();
+      }, 0);
+    }, 0);
   });
 
-  it('shows an error message when a 422 status is received', (done) => {
-    fetchMock.post('/api/v1/reviews/create', {
+  it("shows an error message when a 422 status is received", done => {
+    fetchMock.post("/api/v1/reviews/create", {
       status: 422,
-      body: { errorItems: ["You cannot submit a blank form & must resolve all errors!"] }
+      body: {
+        errorItems: [
+          "You cannot submit a blank form & must resolve all errors!"
+        ]
+      }
     });
-    wrapper.find('#submit-button').simulate('submit')
+    wrapper.find("#submit-button").simulate("submit");
     setTimeout(() => {
-      expect(wrapper.find('.callout-alert')).toBePresent()
-      expect(wrapper.find('.callout-alert').text()).toEqual("You cannot submit a blank form & must resolve all errors!")
-      done()
-    }, 0)
+      expect(wrapper.find(".callout-alert")).toBePresent();
+      expect(wrapper.find(".callout-alert").text()).toEqual(
+        "You cannot submit a blank form & must resolve all errors!"
+      );
+      done();
+    }, 0);
   });
 
-  it("should post a new vote", (done) => {
+  it("should post a new vote", done => {
     let params = {
       score: 1,
       vote: {
@@ -131,19 +153,19 @@ describe("AttractionsShowContainer", () => {
         review_id: 3,
         user_id: 2
       }
-    }
+    };
 
     fetchMock.post(`/api/v1/votes`, {
       status: 201,
       body: params
     });
     setTimeout(() => {
-      wrapper.find('.upvote').simulate('click')
+      wrapper.find(".upvote").simulate("click");
       setTimeout(() => {
-        expect(wrapper.find('.score')).toBePresent()
-        expect(wrapper.find('.score').length).toEqual(1)
-        done()
-      }, 0)
-    }, 0)
+        expect(wrapper.find(".score")).toBePresent();
+        expect(wrapper.find(".score").length).toEqual(1);
+        done();
+      }, 0);
+    }, 0);
   });
 });

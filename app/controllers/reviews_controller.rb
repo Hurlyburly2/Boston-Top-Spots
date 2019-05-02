@@ -4,11 +4,10 @@ class ReviewsController < ApplicationController
   end
 
   def destroy
-
   end
 
   def edit
-    @ratingOptions = [["1 Terry", 1], ["2 Terry's", 2], ["3 Terry's", 3], ["4 Terry's", 4], ["5 Terry's", 5]]
+    @ratingOptions = [["How many Terry's would you give this experience?"],["1 Terry", 1], ["2 Terry's", 2], ["3 Terry's", 3], ["4 Terry's", 4], ["5 Terry's", 5]]
     @review = Review.find(params["id"])
   end
 
@@ -24,7 +23,6 @@ class ReviewsController < ApplicationController
       flash.now[:sad] = @review.errors.full_messages.join(", ")
       render :edit
     end
-
   end
 
   def review_params

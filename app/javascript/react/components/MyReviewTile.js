@@ -6,6 +6,16 @@ const MyReviewTile = props => {
   let editButton;
   let editButtonId = `editButton${props.id}`;
 
+  let doggoArray = [];
+  let doggoBlack = <img src="/doggoBlack.png" alt="doggoBlack" />;
+  let doggoGrey = <img src="/doggoGrey.png" alt="doggoGrey" />;
+  for (var i = 0; i < props.rating; i++) {
+    doggoArray.push(doggoBlack);
+  }
+  for (var i = props.rating; i < 5; i++) {
+    doggoArray.push(doggoGrey);
+  }
+  let rating = <div className="doggo">{doggoArray}</div>;
   return (
     <div className="reviewSituation">
       <li className="review-tile-li">
@@ -16,7 +26,7 @@ const MyReviewTile = props => {
         <div className="review-text">
           {props.body}
           <br />
-          {props.rating}
+          {rating}
         </div>
         <div className="review-index-buttons">
           <button id={editButtonId} onClick={props.handleEditReview}>
@@ -30,5 +40,4 @@ const MyReviewTile = props => {
     </div>
   );
 };
-
 export default MyReviewTile;
