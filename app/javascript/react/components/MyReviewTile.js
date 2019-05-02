@@ -22,12 +22,14 @@ const MyReviewTile = props => {
     <div className = "spaceoutreviews">
       <div className="reviewSituation">
         <li className="review-tile-li">
-          <div className="review-tile-image">
-            <img src={props.attraction_image} id="review-index-image"/>
-            <div className="review-index-tile-title">
-              {props.attraction_name}
+          <a href={`/attractions/${props.attraction_id}`}>
+            <div className="review-tile-image">
+              <img src={props.attraction_image} id="review-index-image"/>
+              <div className="review-index-tile-title">
+                {props.attraction_name}
+              </div>
             </div>
-          </div>
+          </a>
           <div className="review-content">
           {rating}
             <div id="review-text">
