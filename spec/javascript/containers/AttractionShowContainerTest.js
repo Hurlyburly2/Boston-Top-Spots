@@ -135,7 +135,7 @@ describe("AttractionsShowContainer", () => {
     setTimeout(() => {
       expect(wrapper.find(".callout-alert")).toBePresent();
       expect(wrapper.find(".callout-alert").text()).toEqual(
-        "You cannot submit a blank form & must resolve all errors!"
+        "You cannot submit a blank form or must be logged in!"
       );
       done();
     }, 0);

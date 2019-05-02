@@ -58,7 +58,7 @@ const ReviewTile = props => {
         <span className="comment-username">{props.username}</span>
         <div className="review-tile-indent">
         <span className="terries">{rating}</span>
-          {props.body}
+          <span id="description-text">{props.body}</span>
         </div>
       </div>
       </li>

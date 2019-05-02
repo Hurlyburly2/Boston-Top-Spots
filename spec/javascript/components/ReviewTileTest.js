@@ -18,7 +18,7 @@ describe("ReviewTile", () => {
   });
 
   it("should render a p tag with a certain text property value", () => {
-    expect(wrapper.find("p").text()).toBe("A great place in Boston");
+    expect(wrapper.find("#description-text").text()).toBe("A great place in Boston");
   });
 
   it("should render the ReviewTile component with specific props", () => {
