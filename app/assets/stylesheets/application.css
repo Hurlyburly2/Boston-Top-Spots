@@ -392,3 +392,24 @@ ul {
   height: 250px;
   object-fit: contain;
 }
+
+#flash-error {
+  color: #ee274f;
+  font-family: paralucent, sans-serif;
+  weight: 500;
+  size: 15px;
+}
+
+#error_explanation h2 {
+  color: #ee274f;
+  font-family: paralucent, sans-serif;
+  weight: 500;
+  size: 15px;
+}
+
+#error_explanation li {
+  color: #ee274f;
+  font-family: paralucent, sans-serif;
+  weight: 500;
+  size: 15px;
+}

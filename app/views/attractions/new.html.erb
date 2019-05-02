@@ -37,3 +37,9 @@
     </div>
   <% end %>
 </div>
+
+<%- flash.each do |key, value| -%>
+<div id="flash-error" class="flash flash-<%= key %>">
+  <%= value %>
+</div>
+<%- end -%>
