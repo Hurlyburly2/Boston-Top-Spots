@@ -6,9 +6,7 @@ class ReviewsContainer extends Component {
     super(props);
     this.state = {};
   }
-
   render() {
-    // debugger
     let reviews = this.props.reviews.map(review => {
       let handleClick = () => {
         this.props.handleDeleteReview(review.id);

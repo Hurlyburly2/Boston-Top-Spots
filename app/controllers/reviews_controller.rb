@@ -4,7 +4,6 @@ class ReviewsController < ApplicationController
   end
 
   def destroy
-
   end
 
   def edit
@@ -24,7 +23,6 @@ class ReviewsController < ApplicationController
       flash.now[:sad] = @review.errors.full_messages.join(", ")
       render :edit
     end
-
   end
 
   def review_params

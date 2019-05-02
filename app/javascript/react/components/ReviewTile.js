@@ -4,7 +4,6 @@ const ReviewTile = props => {
   let doggoArray = [];
   let doggoBlack = <img src="/doggoBlack.png" alt="doggoBlack" />;
   let doggoGrey = <img src="/doggoGrey.png" alt="doggoGrey" />;
-
   for (var i = 0; i < props.rating; i++) {
     doggoArray.push(doggoBlack);
   }
