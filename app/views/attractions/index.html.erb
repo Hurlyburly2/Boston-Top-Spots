@@ -5,6 +5,7 @@
       </span>
     </div>
   </div>
+  
 
   <div class="spanImage">
     <div class="imageText">
@@ -13,6 +14,12 @@
     </div>
     <%= image_tag "BostonImage.jpg", :class => "imageToSpan" %>
   </div>
+  
+  <%- flash.each do |key, value| -%>
+  <div id="flash-error" class="flash flash-<%= key %>">
+    <%= value %>
+  </div>
+  <%- end -%>
 
   <ul class="attractions-container">
   <% if @attractions %>

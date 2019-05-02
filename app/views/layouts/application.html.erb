@@ -50,11 +50,6 @@
 
   <%= yield %>
   
-  <%- flash.each do |key, value| -%>
-  <div id="flash-error" class="flash flash-<%= key %>">
-    <%= value %>
-  </div>
-  <%- end -%>
 
   <%= javascript_include_tag 'application' %>
 

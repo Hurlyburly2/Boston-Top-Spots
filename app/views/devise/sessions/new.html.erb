@@ -1,5 +1,12 @@
 <div class="attraction-form">
   <h2>Log in</h2>
+  
+  <%- flash.each do |key, value| -%>
+  <div id="flash-error" class="flash flash-<%= key %>">
+    <%= value %>
+  </div>
+  <%- end -%>
+  
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <div class="field medium-form">
       <%= f.label :email %>
