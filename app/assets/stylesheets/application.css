@@ -316,3 +316,50 @@ ul {
 .doggo img {
   width: 40px;
 }
+
+.attr-review-header {
+  font-family: paralucent, sans-serif;
+  font-weight: 500;
+  color: #ee274f;
+}
+
+.voteArea {
+  float: right;
+}
+
+.upvote, .downvote, .score {
+  display: inline-block;
+  /* float: right; */
+  vertical-align: middle;
+}
+
+.score {
+  font-family: paralucent, sans-serif;
+  font-weight: 400;
+  font-size: 30px;
+  margin: 0 10px 0 10px;
+  color: #0b1019;
+}
+
+.deleteArea {
+  text-align: right;
+}
+
+.comment-username {
+  font-family: paralucent, sans-serif;
+  font-weight: 300;
+  color: #ee274f;
+  font-size: 25px;
+  margin: 15px 0 10px 0;
+}
+
+.review-tile-indent {
+  margin-top: 10px;
+  margin-left: 25px;
+  color: #0b1019;
+  font-size: 20px;
+}
+
+/* .terries {
+  margin-top: 5px;
+} */

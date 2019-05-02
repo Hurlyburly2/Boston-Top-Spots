@@ -84,14 +84,20 @@ const ReviewTile = props => {
   }
   return (
     <div>
-      {props.username}
-      <li>
-        {rating}
-        <p>{props.body}</p>
+    <hr />
+    <li>
+      <div className = "voteArea">
+        {upvoteButton} <div className="score">{props.score}</div> {downvoteButton}
+        <br />
+        {deleteButton}
+      </div>
+      <span className="comment-username">{props.username}</span>
+      <span className="terries">{rating}</span>
+        <div className="review-tile-indent">
+          {props.body}
+        </div>
       </li>
-      {deleteButton}
       <br />
-      {upvoteButton} <div className="score">{props.score}</div> {downvoteButton}
     </div>
   );
 };
