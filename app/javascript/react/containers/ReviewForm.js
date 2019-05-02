@@ -63,7 +63,7 @@ class ReviewForm extends Component {
 
   render() {
     const OPTIONS = [
-      "How many Terry's would you give this experience?",
+      "How many Terry's would you rate this experience?",
       "1 Terry",
       "2 Terry's",
       "3 Terry's",

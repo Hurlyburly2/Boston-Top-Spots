@@ -7,7 +7,7 @@ class ReviewsController < ApplicationController
   end
 
   def edit
-    @ratingOptions = [["How many Terry's would you give this experience?"],["1 Terry", 1], ["2 Terry's", 2], ["3 Terry's", 3], ["4 Terry's", 4], ["5 Terry's", 5]]
+    @ratingOptions = [["How many Terry's would you rate this experience?"],["1 Terry", 1], ["2 Terry's", 2], ["3 Terry's", 3], ["4 Terry's", 4], ["5 Terry's", 5]]
     @review = Review.find(params["id"])
   end
 
