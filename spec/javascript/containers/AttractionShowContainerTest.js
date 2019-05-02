@@ -129,17 +129,13 @@ describe("AttractionsShowContainer", () => {
   it("shows an error message when a 422 status is received", done => {
     fetchMock.post("/api/v1/reviews/create", {
       status: 422,
-      body: {
-        errorItems: [
-          "You cannot submit a blank form & must resolve all errors!"
-        ]
-      }
+      body: { errorItems: ["You cannot submit a blank form or must be logged in!"] }
     });
     wrapper.find("#submit-button").simulate("submit");
     setTimeout(() => {
       expect(wrapper.find(".callout-alert")).toBePresent();
       expect(wrapper.find(".callout-alert").text()).toEqual(
-        "You cannot submit a blank form & must resolve all errors!"
+        "You cannot submit a blank form or must be logged in!"
       );
       done();
     }, 0);

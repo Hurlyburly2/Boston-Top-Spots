@@ -115,7 +115,6 @@ class AttractionsShowContainer extends Component {
   addNewReview(formPayload) {
     formPayload["attraction_id"] = this.state.attraction.id;
     formPayload["user_id"] = this.state.currentUser.id;
-
     fetch(`/api/v1/reviews`, {
       credentials: "same-origin",
       method: "POST",
@@ -170,7 +169,7 @@ class AttractionsShowContainer extends Component {
 
   render() {
     return (
-      <div>
+      <div className="attraction-form">
         <AttractionTile
           id={this.state.attraction.id}
           name={this.state.attraction.name}
@@ -181,6 +180,10 @@ class AttractionsShowContainer extends Component {
           description={this.state.attraction.description}
           currentUser={this.state.currentUser}
           handleDeleteAttraction={this.handleDeleteAttraction}
+          image={this.state.attraction.image_url}
+        />
+        <ReviewForm
+        addNewReview={this.addNewReview}
         />
         <ReviewsContainer
           reviews={this.state.reviews}
@@ -188,7 +191,6 @@ class AttractionsShowContainer extends Component {
           handleDeleteReview={this.handleDeleteReview}
           handleVote={this.handleVote}
         />
-        <ReviewForm addNewReview={this.addNewReview} />
       </div>
     );
   }

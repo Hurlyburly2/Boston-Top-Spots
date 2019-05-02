@@ -1,14 +1,17 @@
 import React from "react";
 
 const ReviewTile = props => {
-  let doggoArray = [];
-  let doggoBlack = <img src="/doggoBlack.png" alt="doggoBlack" />;
-  let doggoGrey = <img src="/doggoGrey.png" alt="doggoGrey" />;
+  let doggoArray = []
+  let doggoBlack
+  let doggoGrey
+
   for (var i = 0; i < props.rating; i++) {
-    doggoArray.push(doggoBlack);
+    doggoBlack = <img src="/doggoBlack.png" alt="doggoBlack" key={i} />
+    doggoArray.push(doggoBlack)
   }
   for (var i = props.rating; i < 5; i++) {
-    doggoArray.push(doggoGrey);
+    doggoGrey = <img src="/doggoGrey.png" alt="doggoGrey" key={i}/>
+    doggoArray.push(doggoGrey)
   }
   let rating = <div className="doggo">{doggoArray}</div>;
 
@@ -16,7 +19,7 @@ const ReviewTile = props => {
   let deleteButtonId = `deleteButton${props.id}`;
   if (props.currentUser !== null && props.currentUser.role === "admin") {
     deleteButton = (
-      <button id={deleteButtonId} onClick={props.handleDeleteReview}>
+      <button id={deleteButtonId} onClick={props.handleDeleteReview} className="review-delete-button">
         Delete Review
       </button>
     );
@@ -43,15 +46,23 @@ const ReviewTile = props => {
   }
   return (
     <div>
-      {props.username}
-      <img src={props.profile_photo} className="" />
-      <li>
-        {rating}
-        <p>{props.body}</p>
+    <hr />
+    <li>
+      <img src={props.profile_photo} id="profilePhoto_two"/>
+      <div className = "voteArea">
+        {upvoteButton} <div className="score">{props.score}</div> {downvoteButton}
+        <br />
+        {deleteButton}
+      </div>
+      <div className="add-a-lower-margin">
+        <span className="comment-username">{props.username}</span>
+        <div className="review-tile-indent">
+        <span className="terries">{rating}</span>
+          <span id="description-text">{props.body}</span>
+        </div>
+      </div>
       </li>
-      {deleteButton}
       <br />
-      {upvoteButton} <div className="score">{props.score}</div> {downvoteButton}
     </div>
   );
 };

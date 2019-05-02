@@ -28,6 +28,7 @@ class ReviewsContainer extends Component {
     });
     return (
       <div>
+        <h3 className="attr-review-header">Attraction Reviews:</h3>
         <ul>{reviews}</ul>
       </div>
     );

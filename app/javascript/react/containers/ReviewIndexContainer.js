@@ -92,9 +92,9 @@ class ReviewIndexContainer extends Component {
       );
     });
     return (
-      <div>
-        <div className="review-index-title">
-          <h1>{user}</h1>
+      <div id="review-index-container">
+        <div id="review-index-title">
+          <h1 id="review-index-page-header">{user}</h1>
         </div>
         <ul>{myReviews}</ul>
       </div>

@@ -29,7 +29,7 @@ class ReviewForm extends Component {
       this.handleClear(event);
     } else {
       let newError = {
-        blank: `You cannot submit a blank form & must resolve all errors!`
+        blank: `You cannot submit a blank form or must be logged in!`
       };
       this.setState({ errors: Object.assign({}, this.state.errors, newError) });
     }
@@ -111,7 +111,7 @@ class ReviewForm extends Component {
           onBlur={this.handleValidation}
         />
         <div className="button-group">
-          <button className="button" onClick={this.handleClear}>
+          <button className="button" onClick={this.handleClear} id="clear-button">
             Clear
           </button>
           <input

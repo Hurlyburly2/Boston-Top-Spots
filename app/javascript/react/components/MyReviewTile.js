@@ -17,26 +17,35 @@ const MyReviewTile = props => {
   }
   let rating = <div className="doggo">{doggoArray}</div>;
   return (
-    <div className="reviewSituation">
-      <li className="review-tile-li">
-        <div className="review-tile-image">
-          <img src={props.attraction_image} />
-          {props.attraction_name}
-        </div>
-        <div className="review-text">
-          {props.body}
-          <br />
+    <div className = "spaceoutreviews">
+      <div className="reviewSituation">
+        <li className="review-tile-li">
+          <div className="review-tile-image">
+            <img src={props.attraction_image} id="review-index-image"/>
+            <div className="review-index-tile-title">
+              {props.attraction_name}
+            </div>
+          </div>
+          <div className="review-content">
           {rating}
-        </div>
-        <div className="review-index-buttons">
-          <button id={editButtonId} onClick={props.handleEditReview}>
-            Edit
-          </button>
-          <button id={deleteButtonId} onClick={props.handleDeleteReview}>
-            Delete
-          </button>
-        </div>
-      </li>
+            <div id="review-text">
+              {props.body}
+              <br />
+            </div>
+            <div className="review-index-buttons">
+              <button id={editButtonId} onClick={props.handleEditReview}>
+                Edit
+              </button>
+              <button id={deleteButtonId} onClick={props.handleDeleteReview}>
+                Delete
+              </button>
+            </div>
+          </div>
+        </li>
+      </div>
+      <br />
+      <br />
+      <br />
     </div>
   );
 };

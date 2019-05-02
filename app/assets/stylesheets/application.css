@@ -18,6 +18,7 @@
 
 body {
   font-family: "Vollkorn", serif;
+  color: #eee5e5;
 }
 
 h1,
@@ -26,101 +27,359 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Signika", sans-serif;
+  font-weight: 300;
 }
 
 ul {
   list-style-type: none;
 }
 
-.attraction-tile-image {
-  width: 150px;
-  height: 190px;
-  text-overflow: ellipses;
+.spanImage {
+  margin: 0 auto;
 }
 
-.attraction-tile-li {
-  vertical-align: middle;
-  display: inline-block;
-  background-color: #333333;
-  padding: 5px 5px 5px 5px;
-  margin: 20px;
-  text-align: center;
+.imageText {
+  position: absolute;
+  top: 90px;
+  width: 100%;
+  margin-left: 15%;
+}
+
+.imageText h3 {
+  color: #eee5e5;
+  font-size: 40px;
+  font-family: paralucent, sans-serif;
+  font-weight: 500;
+}
+
+.imageText h4 {
+  margin-top: 20px;
+  color: #eee5e5;
+  font-size: 20px;
+  font-family: paralucent, sans-serif;
+  font-weight: 300;
+  letter-spacing: 2px;
+  color: white;
+}
+
+.title-area a {
+  font-family: paralucent, sans-serif;
+  font-weight: 500;
+  font-size: 24px;
+  color: #eee5e5;
+}
+
+.right-link a {
+  font-family: paralucent, sans-serif;
+  font-weight: 300;
+}
+
+.imageToSpan {
+  object-fit: cover;
+  width: 100%;
+  height: 300px;
 }
 
 .attraction-tile-li a {
   color: white;
 }
 
+.attraction-tile-image {
+  text-overflow: ellipses;
+  object-fit: contain;
+  width: 250px;
+  height: 250px;
+}
+
+.attraction-tile-li {
+  vertical-align: middle;
+  display: inline-block;
+  background-color: #0b1019;
+  margin: 20px;
+  text-align: center;
+  border-radius: 0 0 20px 20px;
+  font-family: paralucent, sans-serif;
+  font-variant: small-caps;
+  font-size: 20px;
+}
+
+.attraction_tile_actual_image {
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+}
+
 .attraction-text {
   margin-top: 10px;
   line-height: 1.25;
-}
-
-.attraction-link {
-  margin-left: 35px;
+  padding-bottom: 20px;
+  width: 250px;
 }
 
 .attraction-link {
   height: 25px;
-  background-color: #333333;
+  background-color: #FA4540;
+}
+
+.attractions-container {
+  margin: 0 15% 0 15%;
 }
 
 .banner-image {
   position: relative;
-  text-align: center;
+  margin-left: 10%;
   color: black;
 }
 
+.top-bar, .top-bar a {
+  background-color: #0b1019;
+}
+
+.navBarMargins {
+  margin: 0 15% 0 15%;
+}
+
+#sign-up {
+  background-color: #ee274f;
+  font-family: paralucent, sans-serif;
+  font-weight: 300;
+  font-size: 17px;
+}
+
+#sign-in, #add_attraction, #my-reviews, #sign-out {
+  background-color: #0b1019;
+  font-family: paralucent, sans-serif;
+  font-weight: 300;
+  font-size: 17px;
+}
+
 .bottom-center {
-  position: absolute;
   text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #fff,
     0 0 50px #fff, 0 0 60px #fff, 0 0 70px #fff;
-  top: 8px;
-  left: 16px;
 }
 
 .dog-image {
-  width: 32px;
+  width: 28px;
   display: inline-block;
-  margin-left: 35px;
 }
 
 .name h1 {
   display: inline-block;
 }
 
-.reviewSituation {
-  height: 190px;
-  display: flex;
-  flex-direction: column;
+.attraction-form {
+  margin: 20px 15% 0 15%;
 }
 
-.review-tile-li {
+.small-form {
+  display: inline-block;
+  width: 33%;
+}
+
+.medium-form {
+  display: inline-block;
+  width: 49.8%;
+}
+
+.submit-button {
+  background-color: #ee274f;
+}
+
+.attraction-image {
+  float: left;
+}
+
+.flash {
+  margin: 0 15% 0 15%;
+}
+
+/*SHOW PAGE*/
+
+#attraction-image-square {
+  margin-top: 15px;
+  width: 40%;
+}
+
+#attraction-main-image {
   width: 100%;
-  margin: 20px;
+  height: auto;
+  margin-right: 5%;
+  float: left;
+  margin-bottom: 20px;
+}
+
+.attraction-details {
+  padding-left: 10%;
+}
+
+.attraction-details-alignment {
+  vertical-align: text-bottom;
+}
+
+#attraction-description {
+  clear: both;
+  color: #0b1019;
+  font-weight: 500;
+}
+
+#attraction-name {
+  font-family: paralucent, sans-serif;
+  color: #ee274f;
+  font-weight: 500;
+}
+
+#attraction-address, #attraction-city-state-zip {
+  font-size: 20px;
+  color: #0b1019;
+}
+
+.attraction-delete-button {
+  background-color: #ee274f;
+  font-family: paralucent, sans-serif;
+  font-weight: 300;
+  font-size: 20px;
+}
+
+.delbuttoncont {
+  text-align: right;
+}
+
+.button-group {
+  text-align: right;
+}
+
+#submit-button {
+  background-color: #ee274f;
+  font-family: paralucent, sans-serif;
+  font-weight: 300;
+  font-size: 20px;
+}
+
+#clear-button {
+  margin-left: 10px;
+  font-family: paralucent, sans-serif;
+  font-weight: 300;
+  font-size: 18px;
+  margin-right: 15px;
+}
+
+/* REVIEw INDEX */
+
+#review-index-title h1 {
+  margin-top: 15px;
+  font-family: paralucent, sans-serif;
+  font-weight: 500;
+  color: #ee274f;
+}
+
+.review-tile-li { 
+  display: block;
+  clear: both;
+}
+
+#review-index-container {
+  margin: 0 15% 0 15%;
+}
+
+.reviewSituation {
+  height: 100%;
 }
 
 .review-tile-image {
-  text-align: center;
-  color: white;
-  background-color: #333333;
-  padding: 5px 5px 5px 5px;
-  width: 150px;
-  text-overflow: ellipses;
+  background-color: #0b1019;
+  padding-bottom: 20px;
+  border-radius: 0 0 25px 25px;
+  width: 250px;
   float: left;
+  /* margin-top: 15px; */
+  font-family: paralucent, sans-serif;
+  font-size: 20px;
+  font-variant: small-caps;
+  text-align: center;
   margin-right: 20px;
 }
 
-.review-text {
-  margin-top: 10px;
-  line-height: 1.25;
-}
-
-.review-index-title {
-  margin-left: 35px;
+.review-index-buttons {
+  height: 100%;
 }
 
 .doggo img {
   width: 40px;
+}
+
+.attr-review-header {
+  font-family: paralucent, sans-serif;
+  font-weight: 500;
+  color: #ee274f;
+}
+
+.voteArea {
+  float: right;
+}
+
+.upvote, .downvote, .score {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.score {
+  font-family: paralucent, sans-serif;
+  font-weight: 400;
+  font-size: 30px;
+  margin: 0 10px 0 10px;
+  color: #0b1019;
+}
+
+.deleteArea {
+  text-align: right;
+}
+
+.comment-username {
+  font-family: paralucent, sans-serif;
+  font-weight: 400;
+  color: #ee274f;
+  font-size: 25px;
+  margin: 15px 0 30px 0;
+}
+
+.review-tile-indent {
+  margin-top: 10px;
+  margin-left: 25px;
+  color: #0b1019;
+  font-size: 20px;
+}
+
+#profilePhoto_two {
+  border: 3px solid #0b1019;
+  border-radius: 0 0 25px 25px;
+  float: left;
+  margin-bottom: 15px;
+  margin-right: 15px;
+}
+
+.callout-alert li {
+  color: #ee274f;
+  font-family: paralucent, sans-serif;
+  weight: 500;
+  size: 15px;
+}
+
+.review-delete-button, .upvote, .downvote {
+  font-family: paralucent, sans-serif !important;
+  font-weight: 300 !important;
+  font-size: 17px;
+}
+
+/*MY REView CONTAINER*/
+
+#review-text {
+  color: #0b1019;
+  font-size: 20px;
+  margin: 0 0 15px 0;
+  margin-top: 20px;
+}
+
+#review-index-page-header {
+  margin-bottom: 20px;
 }

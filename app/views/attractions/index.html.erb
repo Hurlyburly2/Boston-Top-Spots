@@ -1,29 +1,32 @@
 <div>
   <div class="banner-image">
-    <%= image_tag "BostonTopSpots.jpg" %>
     <div class="bottom-center">
-      <h2>Find Local Attractions, Book Tours,</h2>
-      <h2>Experience Boston</h2>
       <span class="header-subtitle">
-        Find amazing things to do in Boston today!
       </span>
     </div>
   </div>
 
-  <div class="attraction-link">
+  <div class="spanImage">
+    <div class="imageText">
+      <h3>Do Boston like<br /> a local</h3>
+      <h4>COOL THINGS TO DO IN THE CITY<br/>OF NEIGHBORHOODS</h4>
+    </div>
+    <%= image_tag "BostonImage.jpg", :class => "imageToSpan" %>
   </div>
 
-  <ul>
+  <ul class="attractions-container">
   <% if @attractions %>
     <% @attractions.each do |attraction| %>
-      <li class="attraction-tile-li">
-        <div class="attraction-tile-image" >
-        <img src="<%= attraction.image_url %>" />
-        <div class="attraction-text">
-        <%= link_to attraction.name, attraction_path(attraction) %>
-        </div>
-      </div>
-      </li>
+      <a href = "/attractions/<%= attraction.id %>">
+        <li class="attraction-tile-li">
+          <div class="attraction-tile-image" >
+            <img src="<%= attraction.image_url %>", class="attraction_tile_actual_image" />
+          </div>
+          <div class="attraction-text">
+            <%= link_to attraction.name, attraction_path(attraction) %>
+          </div>
+        </li>
+      </a>
     <% end %>
   <% end %>
   </ul>
