@@ -29,6 +29,7 @@ class ReviewSerializer < ActiveModel::Serializer
     location = {}
     location["name"] = object.attraction.name
     location["image_url"] = object.attraction.image_url
+    location["id"] = object.attraction.id
     return location
   end
 end

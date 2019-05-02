@@ -84,6 +84,7 @@ class ReviewIndexContainer extends Component {
           id={review.id}
           attraction_name={review.location.name}
           attraction_image={review.location.image_url}
+          attraction_id={review.location.id}
           body={review.body}
           rating={review.rating}
           handleDeleteReview={handleDeleteReview}
