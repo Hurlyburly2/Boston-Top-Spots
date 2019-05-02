@@ -6,7 +6,7 @@ describe("ReviewTile", () => {
   beforeEach(() => {
     wrapper = mount(
       <ReviewTile
-        rating="5 Stars"
+        rating="5 Terry's"
         body="A great place in Boston"
         currentUser={null}
       />
@@ -18,7 +18,7 @@ describe("ReviewTile", () => {
   });
 
   it("should render an h3 tag with a certain text property value", () => {
-    expect(wrapper.find("h3").text()).toBe("Rating: 5 Stars");
+    expect(wrapper.find("h3").text()).toBe("Rating: 5 Terry's");
   });
 
   it("should render a p tag with a certain text property value", () => {
@@ -27,7 +27,7 @@ describe("ReviewTile", () => {
 
   it("should render the ReviewTile component with specific props", () => {
     expect(wrapper.props()).toEqual({
-      rating: "5 Stars",
+      rating: "5 Terry's",
       body: "A great place in Boston",
       currentUser: null
     });

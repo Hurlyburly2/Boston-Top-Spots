@@ -1,6 +1,5 @@
 require 'rails_helper'
 
-
 RSpec.describe Api::V1::ReviewsController, type: :controller do
   describe 'POST#create' do
     it "creates a new review" do
@@ -26,7 +25,6 @@ RSpec.describe Api::V1::ReviewsController, type: :controller do
           user: user
         }
       }
-
       post :create, {params:  params}
       expect(attraction.user).to be(user)
     end
@@ -49,12 +47,11 @@ RSpec.describe Api::V1::ReviewsController, type: :controller do
         params = {
         review: {
           rating: 5,
-          body: 'A splashing good time',
+          body: "A splashing good time",
           attraction_id: attraction.id,
           user_id: user.id
         }
       }
-
       post :create, params:  params
       returned_json = JSON.parse(response.body)
 
@@ -63,11 +60,10 @@ RSpec.describe Api::V1::ReviewsController, type: :controller do
 
       expect(returned_json).to be_kind_of(Hash)
       expect(returned_json).to_not be_kind_of(Array)
-      expect(returned_json["review"]["body"]).to eq "A splashing good time"
-      expect(returned_json["review"]["attraction_id"]).to eq attraction.id
-      expect(returned_json["review"]["user_id"]).to eq user.id
-      expect(returned_json["review"]["rating"]).to eq 5
-
+      expect(returned_json["attractions"]["reviews"][0]["body"]).to eq "A splashing good time"
+      expect(returned_json["attractions"]["id"]).to eq attraction.id
+      expect(returned_json["attractions"]["reviews"][0]["reviewer"]["id"]).to eq user.id
+      expect(returned_json["attractions"]["reviews"][0]["rating"]).to eq 5
     end
   end
 

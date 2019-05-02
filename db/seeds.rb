@@ -17,3 +17,7 @@ end
 if Rails.env.development? || Rails.env.production?
   ReviewSeeder.seed!
 end
+
+if Rails.env.development? || Rails.env.production?
+  VoteSeeder.seed!
+end
