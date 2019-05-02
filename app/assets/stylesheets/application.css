@@ -352,6 +352,9 @@ ul {
 
 #profilePhoto_two {
   border: 3px solid #0b1019;
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
   border-radius: 0 0 25px 25px;
   float: left;
   margin-bottom: 15px;
@@ -382,4 +385,10 @@ ul {
 
 #review-index-page-header {
   margin-bottom: 20px;
+}
+
+.review-index-profile-pic {
+  width: 250px;
+  height: 250px;
+  object-fit: contain;
 }
