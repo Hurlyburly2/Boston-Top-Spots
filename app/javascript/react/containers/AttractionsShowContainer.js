@@ -115,7 +115,6 @@ class AttractionsShowContainer extends Component {
   addNewReview(formPayload) {
     formPayload["attraction_id"] = this.state.attraction.id;
     formPayload["user_id"] = this.state.currentUser.id;
-
     fetch(`/api/v1/reviews`, {
       credentials: "same-origin",
       method: "POST",

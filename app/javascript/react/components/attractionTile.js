@@ -29,7 +29,6 @@ const AttractionTile = props => {
           {deleteButton}
         </div>
       </div>
-
     </div>
   );
 };
