@@ -13,5 +13,7 @@ https://boston-top-spots.herokuapp.com/
 <ul>
   <li>Download the Repo</li>
   <li>'yarn install' and 'bundle install' from your terminal</li>
-  
+  <li>You will need an AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY, placed in a .env file</li>
+  <li>'yarn run start' and 'rails s'</li>
+  <li>create the database: 'bundle exec rake db:create', 'bundle exec rake db:migrate', 'bundle exec rake db:seed'</li>
 </ul>
