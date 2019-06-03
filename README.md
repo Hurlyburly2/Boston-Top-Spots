@@ -9,6 +9,9 @@ An application for viewing, creating, and viewing Boston's best tourist attracti
 <h3>See the Live Version Here:</h3>
 https://boston-top-spots.herokuapp.com/
 
+<h3>Screencast:</h3>
+https://youtu.be/gxqV-qnM4f4
+
 <h3>To Run Locally:</h3>
 <ul>
   <li>Download the Repo</li>
