@@ -18,3 +18,9 @@ https://boston-top-spots.herokuapp.com/
   <li>'yarn run start' and 'rails s'</li>
   <li>Navigate your browser to localhost:3000</li>
 </ul>
+
+<h3>Config:</h3>
+<ul>
+  <li>Ruby v2.4.5</li>
+  <li>Run tests with 'bundle exec rspec' and 'yarn run test'</li>
+</ul>
