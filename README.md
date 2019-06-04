@@ -2,7 +2,7 @@
 
 [![Codeship Status for HGarcia22/Boston-Top-Spots](https://app.codeship.com/projects/f0750a00-474f-0137-cd63-3a91933c600e/status?branch=master)](https://app.codeship.com/projects/337461)
 
-Contributors: Doug Simon, Boris Margarian, Allison Kemmerle, and <a href="https://github.com/HGarcia22/">Heather Garcia</a>
+Contributors: Doug Simon, <a href="https://github.com/BorisMargarian">Boris Margarian</a>, <a href="https://github.com/kemmerle">Allison Kemmerle</a>, and <a href="https://github.com/HGarcia22/">Heather Garcia</a>
 
 An application for viewing, creating, and viewing Boston's best tourist attractions!
 
